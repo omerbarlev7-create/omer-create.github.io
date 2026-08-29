@@ -77,23 +77,21 @@ body{background:#14171d;font-family:Rubik,sans-serif;-webkit-font-smoothing:anti
 .deck em{font-style:italic}
 
 /* Hebrew is a sibling voice, not a caption: same paper white, its own rail. */
-.he-line{direction:rtl;text-align:left;font-size:50px;font-weight:600;line-height:1.28;
+.he-line{direction:rtl;text-align:right;font-size:50px;font-weight:600;line-height:1.28;
          color:var(--paper);letter-spacing:-.012em;
          border-left:3px solid var(--cy);padding-left:32px;max-width:860px}
 .he-line.sm{font-size:43px;font-weight:500;line-height:1.3}
-.he-line.right{text-align:right;border-left:none;border-right:3px solid var(--cy);
-               padding-left:0;padding-right:32px;margin-left:auto}
+.he-line.right{text-align:right}
 .he-line.bare{border:none;padding:0}
-.he-block{border-left:3px solid var(--cy);padding-left:32px;max-width:880px}
-.he-block.right{border-left:none;border-right:3px solid var(--cy);
-                padding-left:0;padding-right:32px;margin-left:auto}
+.he-block{border-right:3px solid var(--cy);padding-right:32px;max-width:880px;margin-left:auto}
+.he-block.right{}
 .he-block .he-line{border:none;padding:0;max-width:none}
-.he-deck{direction:rtl;text-align:left;font-size:31px;font-weight:400;line-height:1.52;
+.he-deck{direction:rtl;text-align:right;font-size:31px;font-weight:400;line-height:1.52;
          color:var(--deck);margin-top:15px}
-.he-block.right .he-line,.he-block.right .he-deck{text-align:right}
+
 .he-deck.tight{font-size:28px;line-height:1.45;margin-top:12px}
 .paperframe .he-deck{color:#4A5468}
-.paperframe .he-block{border-left-color:var(--cy-deep)}
+.paperframe .he-block{border-right-color:var(--cy-deep)}
 .he-line .cy{color:var(--cy)}
 
 .rule{height:1px;background:var(--hair)}
@@ -258,7 +256,7 @@ body{background:#14171d;font-family:Rubik,sans-serif;-webkit-font-smoothing:anti
 #f07 .lead .cy{color:var(--cy-deep)}
 #f07 .deck{color:#4B5566}
 #f07 .deck b{color:var(--ink)}
-#f07 .he-line{color:var(--ink);border-left-color:var(--cy-deep)}
+#f07 .he-line{color:var(--ink)}
 #f07 .payload{background:#080B12;border-radius:26px;padding:52px 56px 56px;
   box-shadow:0 34px 80px rgba(8,11,18,.30);position:relative;overflow:hidden}
 #f07 .payload::before{content:'';position:absolute;left:0;top:0;right:0;height:3px;

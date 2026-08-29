@@ -99,10 +99,13 @@ it — that duplication is the failure mode here, and it reads as padding.
 Hebrew sets at 50px (lead) / 31px (deck) inside a single cyan rail that spans
 both, so the pair reads as one unit rather than two stray lines.
 
-- Hebrew blocks: `direction: rtl`. Default `text-align: left` keeps them on the
-  shared left axis with a **left** rail.
-- Frame 02 flips to `text-align: right` with a **right** rail — a deliberate
-  counter-axis on the one frame with room for it.
+- Hebrew blocks: `direction: rtl; text-align: right`, pushed to the right edge
+  with a rail on their **right**. Hebrew reads right-to-left, so it starts at the
+  right edge — forcing it onto the English left axis made it read as a translated
+  caption rather than as Hebrew.
+- The result is a deliberate counter-axis: English anchored left, Hebrew anchored
+  right, one rail marking the switch. That contrast is what tells a reader at a
+  glance which language block is theirs.
 - Any Latin or numeric run inside Hebrew is wrapped in `<bdi>` or
   `<span dir="ltr">` (`AI`, `$49`, `omermethod.com`). Bidi has scrambled this
   once already.
