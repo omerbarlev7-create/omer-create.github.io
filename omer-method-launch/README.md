@@ -39,7 +39,7 @@ That insight is the product, so the sale lands as a conclusion rather than a pit
 - [x] Story sequence — copy, structure, bilingual
 - [x] Design system
 - [x] Comment evidence transcribed
-- [ ] Interior guide screenshot (`E2`) — needed for frame 9
-- [ ] Selfie video (`F1`) — needed for frame 8
+- [x] Product reference — all 5 guides + proof section
+- [ ] Still portrait (`F2`) — for frame 8
 - [ ] Frame export
 - [ ] Pinned carousel

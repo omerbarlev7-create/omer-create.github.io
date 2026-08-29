@@ -52,10 +52,16 @@ Corner label: `OMER METHOD · 01`
 
 | | |
 |---|---|
-| **HE** | כל השיטות שלי — נוסו על מוניקה.<br><br>**היא הפכה לתופעה בפני עצמה.** |
-| **EN** | I TESTED EVERY METHOD ON MONICA.<br><br>**SHE BECAME A PHENOMENON.** |
+| **HE** | בניתי דמות עקבית מספיק כדי שלא יבינו שהיא AI.<br><br>שאלו אותי איפה אפשר לשמוע את השיר שלה —<br>עד ששמתי אותו בספוטיפיי.<br><br>**שיר של דמות שלא קיימת<br>הפך לשיר אמיתי.** |
+| **EN** | I BUILT A CHARACTER CONSISTENT ENOUGH<br>THAT NOBODY REALISED SHE WAS AI.<br><br>THEY KEPT ASKING WHERE TO HEAR HER SONG —<br>SO I PUT IT ON SPOTIFY.<br><br>**A SONG BY SOMEONE WHO DOESN'T EXIST<br>BECAME A REAL SONG.** |
 
-Stat chips: `92.8K` · `2M VIEWS`
+Stat chips: `92.8K` · `2M VIEWS` · `SPOTIFY + APPLE`
+
+> Replaces the earlier "she became a phenomenon," which asserted the outcome
+> without evidence. The Spotify beat *is* the phenomenon, and it is the purest
+> statement of the whole thesis: the audience cared enough about a character to
+> go looking for her music on a real platform. Nobody streams a song because the
+> pipeline was impressive.
 
 ---
 
@@ -66,10 +72,19 @@ Three bands stacked.
 
 | | |
 |---|---|
-| **HE** | ואז לקחתי את אותה שיטה למקומות אחרים.<br><br>**3 עולמות. שיטה אחת.** |
-| **EN** | THEN I TOOK THE SAME METHOD ELSEWHERE.<br><br>**3 WORLDS. ONE METHOD.** |
+| **HE** | ואז לקחתי את אותה שיטה למקומות אחרים.<br><br>לא אותו כלי. לא אותו פורמט. לא אותו קהל.<br><br>**3 עולמות. שיטה אחת.** |
+| **EN** | THEN I TOOK THE SAME METHOD ELSEWHERE.<br><br>NOT THE SAME TOOL. FORMAT. AUDIENCE.<br><br>**3 WORLDS. ONE METHOD.** |
 
-Labels: `ONLY IN ISRAEL` · `BRIEF 24` · `MAKE ME CARE`
+Labels + stat chips:
+
+| Band | Label | Chip |
+|---|---|---|
+| Only in Israel | `A SITCOM MADE ENTIRELY WITH AI` | `1M+ VIEWS · 16 EPISODES` |
+| BRIEF 24 | `A SERIES ABOUT AN AD AGENCY` | `THE METHOD, APPLIED TO ITSELF` |
+
+> The BRIEF 24 chip is the trust line: he built a series *using* the method to
+> depict the method. He ran it on himself before charging for it. That is worth
+> more to a buyer than another view count.
 
 > "3 worlds, one method" is lifted verbatim from omermethod.com. Keep it identical —
 > story and landing page must rhyme.
@@ -117,8 +132,19 @@ Stat chips: `4 LANGUAGES` · `889 LIKES ON ONE COMMENT` · `934 COMMENTS FROM FA
 | **HE** | אף אחד לא הגיב על ה-AI.<br><br>**הם הגיבו על הסיפור.**<br><br>לא *מה* יצרתי — **איך סיפרתי אותו.** |
 | **EN** | NOBODY REACTED TO THE AI.<br><br>**THEY REACTED TO THE STORY.**<br><br>NOT *WHAT* I MADE — **HOW I TOLD IT.** |
 
-Footer line (his own IG bio, closing the loop):
-`AI makes creating easy. Making people care about it — that's the work.`
+**Boxed line, lower third — accent border, this is the payload:**
+
+| | |
+|---|---|
+| **HE** | אז מה השיטה?<br>**סדר ההחלטות שלפני כל פרומפט.** |
+| **EN** | SO WHAT IS THE METHOD?<br>**THE ORDER OF DECISIONS BEFORE EVERY PROMPT.** |
+
+> Until this line the sequence only says what the method *isn't*. Eight words —
+> lifted from the site's proof section — say what it *is*, and they are the only
+> concrete thing a buyer can hold onto before the price appears three frames
+> later. Without it, frame 10 asks for $49 on the strength of a feeling.
+>
+> Set it apart visually. It is the one sentence worth screenshotting.
 
 ---
 
@@ -158,6 +184,16 @@ The bullets are what prove substance; a cover would not.
 |---|---|
 | **HE** | חודשים של לכתוב. למחוק. לתקן. לכתוב שוב.<br><br>**5 מדריכים** שלוקחים אתכם יד ביד<br>לתוך אופן החשיבה שלי.<br><br>לא רשימת כלים. **שיטה.** |
 | **EN** | MONTHS OF WRITING. DELETING. REWRITING.<br><br>**5 GUIDES** THAT WALK YOU<br>THROUGH HOW I THINK.<br><br>NOT A TOOL LIST. **A METHOD.** |
+
+**The five, as a compact list on the frame:**
+
+| | |
+|---|---|
+| 01 | From an Idea to a Video That Works |
+| 02 | Monica Method |
+| 03 | Don't Write a Prompt. Direct an Outcome. |
+| 04 | Turn Your World into a Web Series |
+| 05 | Inside the Creative Room |
 
 **Callout chip, bottom of frame — closes the loop opened in frame 1:**
 
