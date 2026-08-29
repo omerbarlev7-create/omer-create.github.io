@@ -86,9 +86,18 @@ to read. So the copy keeps its substance; what carries it is organisation:
 
 ### Bilingual rule
 
-English leads, Hebrew supports at matching visual weight. The comment evidence
-carries four languages, so English is the line that has to land — but Hebrew is
-never a caption. It gets paper-white, 500–600 weight, and its own cyan rail.
+English leads the composition. Hebrew matches it in **content**, not just weight.
+
+Every frame gives each language a complete block — a lead that mirrors the other
+language's lead, then a deck of the same substance. A reader in either language
+gets the whole argument without needing the other one. Hebrew is never a summary
+of the English: where the two decks say the same thing, they say all of it.
+
+The Hebrew lead mirrors the English *lead*, never restates the Hebrew deck below
+it — that duplication is the failure mode here, and it reads as padding.
+
+Hebrew sets at 50px (lead) / 31px (deck) inside a single cyan rail that spans
+both, so the pair reads as one unit rather than two stray lines.
 
 - Hebrew blocks: `direction: rtl`. Default `text-align: left` keeps them on the
   shared left axis with a **left** rail.
