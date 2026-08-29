@@ -18,12 +18,13 @@ Drop files into `02-assets/screenshots/` using the exact filenames below.
 | `D3` | `comments-ring-column.png` | The "Ring" keyword column | **Frame 6** |
 | `D1` | `comments-wow.png` | "גאונות!" / "זה מעלף גאוני" / "סרט מושלם" / 🔥🔥🔥 | Frame 5 |
 
+| `E2` | `method-guide-cards.png` | Guide 01 + 02 cards with chapter bullets and $19 pricing | **Frame 9** |
+
 ## ❌ Still needed
 
 | ID | Filename | What | Feeds | Why it matters |
 |---|---|---|---|---|
-| `E2` | `method-inside.png` | **Interior page** of a guide — a real chapter or contents page | **Frame 9** | A cover proves nothing. People need to see there is substance before paying $49. |
-| `F1` | `omer-selfie.mp4` | 5–8s selfie video, speaking to camera | **Frame 8** | The only human face in the sequence. This is the frame that converts. |
+| `F2` | `omer-portrait.png` | One still portrait — no video, no recording | **Frame 8** | Replaces the dropped selfie. Without it the sequence sells a personal method with no person in it. The existing profile photo works if nothing better exists. |
 
 ## Capture spec
 

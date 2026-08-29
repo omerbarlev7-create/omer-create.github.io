@@ -124,23 +124,52 @@ Footer line (his own IG bio, closing the loop):
 
 ## Frame 8 — NOT A TUTORIAL
 
-**Visual:** Selfie video, 5–8s. The only human face in the sequence. This is what converts.
+**No talking-head video.** Three ways to carry this frame instead:
+
+| Option | Visual | Trade-off |
+|---|---|---|
+| **A · Still portrait** ✅ | A single still of Omer, desaturated, type over the lower half | Keeps a human presence with nothing to record. Safest. |
+| **B · The twin** | The OMER AI digital twin delivers the line | The strongest frame in the sequence *or* the one that undercuts it — see note |
+| **C · Type only** | Clean ground, no image | Cleanest, but the sequence then has no face at all |
 
 | | |
 |---|---|
 | **HE** | הערך שלי הוא לא ללמד "איך עושים סרטון AI".<br>**זה הקל.**<br><br>השאלה היא איך הופכים את זה למנוף לתוכן שלכם.<br><br>זה לא מחליף אתכם. **זה משדרג אתכם.** |
 | **EN** | MY VALUE ISN'T TEACHING YOU TO MAKE AN AI VIDEO.<br>**THAT'S THE EASY PART.**<br><br>IT'S HOW YOU TURN IT INTO LEVERAGE.<br><br>IT DOESN'T REPLACE YOU. **IT UPGRADES YOU.** |
 
+> **On option B.** Having the AI twin say *"it doesn't replace you, it upgrades you"*
+> is either the most memorable frame here or a contradiction the audience catches
+> instantly. It works only if the frame admits it — a small label like
+> `הכפיל שלי אמר את זה / MY TWIN SAID THAT` turns the tension into the point.
+> Unlabelled, it argues against itself.
+>
+> With no face anywhere in ten frames, a personal method loses some of its
+> personal. **Option A is the recommendation** — one still costs nothing and
+> solves it.
+
 ---
 
 ## Frame 9 — WHAT I BUILT
 
-**Visual:** `E2` real interior page of a guide. Not a cover — people need to see substance.
+**Visual:** `E2` the guide cards from omermethod.com — real chapter bullets visible.
+The bullets are what prove substance; a cover would not.
 
 | | |
 |---|---|
 | **HE** | חודשים של לכתוב. למחוק. לתקן. לכתוב שוב.<br><br>**5 מדריכים** שלוקחים אתכם יד ביד<br>לתוך אופן החשיבה שלי.<br><br>לא רשימת כלים. **שיטה.** |
 | **EN** | MONTHS OF WRITING. DELETING. REWRITING.<br><br>**5 GUIDES** THAT WALK YOU<br>THROUGH HOW I THINK.<br><br>NOT A TOOL LIST. **A METHOD.** |
+
+**Callout chip, bottom of frame — closes the loop opened in frame 1:**
+
+```
+מדריך 01, פרק 2:  "THE SECOND QUESTION"
+                   ↑ השאלה הנכונה
+```
+
+> Guide 01 contains a chapter literally called *The Second Question*. Frame 1
+> opens by saying the audience has been asking the wrong one. Surfacing that
+> chapter name here pays off the hook and converts curiosity into a click — the
+> sequence poses the question, the product answers it.
 
 🔗 Link sticker: `OMER METHOD`
 
