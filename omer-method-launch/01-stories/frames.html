@@ -1,309 +1,679 @@
 <meta charset="utf-8">
 <title>OMER METHOD — Story Frames</title>
 <style>
-  :root{
-    --ground:#080B12; --lift:#101725; --paper:#F2F4F8;
-    --muted:#7E8798; --accent:#22D3EE;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:#1a1a1a;font-family:'Rubik',sans-serif}
+/* ═══════════════════════════════════════════════════════════════════════
+   OMER METHOD — story sequence
+   System: "Signal & Grain". Dark field, one cyan signal, human faces
+   surfacing through grain, evidence set like a specimen sheet.
+   Ten frames, ten different compositions, one typographic grammar.
+   ═══════════════════════════════════════════════════════════════════════ */
 
-  .frame{
-    position:relative;width:1080px;height:1920px;overflow:hidden;
-    background:radial-gradient(130% 90% at 20% 0%, #141c2e 0%, var(--ground) 58%);
-    display:flex;flex-direction:column;
-    padding:270px 96px 300px;
-    color:var(--paper);
-  }
-  .frame + .frame{margin-top:40px}
+:root{
+  --ground:#070A11;
+  --ground-2:#0C1220;
+  --ink:#080B12;
+  --paper:#F2F4F8;
+  --deck:#A9B2C4;
+  --muted:#6E7889;
+  --cy:#22D3EE;
+  --cy-deep:#0B93B0;
+  --vi:#A78BFA;
+  --hair:rgba(255,255,255,.10);
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#14171d;font-family:Rubik,sans-serif;-webkit-font-smoothing:antialiased;
+     text-rendering:optimizeLegibility}
 
-  /* ── English leads. Sentence case, never caps: caps read as advertising. ── */
-  .en{direction:ltr;text-align:left}
-  .he{direction:rtl;text-align:left}
+.frame{position:relative;width:1080px;height:1920px;overflow:hidden;
+       background:var(--ground);color:var(--paper)}
+.frame + .frame{margin-top:48px}
 
-  .lead{font-size:88px;font-weight:800;line-height:1.1;letter-spacing:-.028em}
-  .lead.sm{font-size:74px}
-  .sub{font-size:41px;font-weight:400;line-height:1.42;color:#B9C0CE;
-       margin-top:32px;max-width:900px}
+/* content band. Instagram covers the top ~250 and bottom ~250.
+   Critical type lives between 330 and 1620. Imagery may bleed past. */
+.pad{position:absolute;left:88px;right:88px;top:330px;bottom:300px;
+     display:flex;flex-direction:column;z-index:4}
+.grow{flex:1;min-height:0}
 
-  /* Hebrew reads optically larger per px than Latin — no ascender/descender
-     swing — so ~0.70x of the English lead sits at matching visual weight. */
-  .he-line{font-size:62px;font-weight:600;line-height:1.24;margin-top:34px;
-           max-width:940px;color:var(--paper);letter-spacing:-.01em}
-  .he-line.sm{font-size:50px;font-weight:500;line-height:1.3}
+/* ── shared atmosphere ── */
+.grain{position:absolute;inset:0;background-image:var(--noise);background-size:220px 220px;
+       opacity:.13;mix-blend-mode:overlay;pointer-events:none;z-index:3}
+.vig{position:absolute;inset:0;pointer-events:none;z-index:3;
+     background:radial-gradient(120% 78% at 50% 42%,transparent 38%,rgba(4,6,11,.72) 100%)}
+.layer{position:absolute;pointer-events:none}
 
-  .accent{color:var(--accent)}
-  em{font-style:italic;font-weight:400}
-  b{font-weight:800;color:var(--paper)}
+/* ── chapter ticker: the one element that never moves ── */
+.tick{position:absolute;left:88px;top:258px;display:flex;align-items:center;gap:6px;z-index:6}
+.tick i{display:block;width:48px;height:4px;border-radius:3px;background:rgba(255,255,255,.15)}
+.tick i.on{background:var(--cy);box-shadow:0 0 20px rgba(34,211,238,.85)}
+.tick b{margin-left:24px;font-size:21px;font-weight:600;letter-spacing:.26em;
+        color:var(--muted);text-transform:uppercase;direction:ltr}
+.paperframe .tick i{background:rgba(8,11,18,.16)}
+.paperframe .tick i.on{background:var(--cy-deep);box-shadow:0 0 18px rgba(11,147,176,.45)}
+.paperframe .tick b{color:#5A6478}
 
-  .hr{width:88px;height:2px;background:var(--accent);opacity:.55;
-      margin:34px 0 0;border-radius:2px}
+/* ═══ TYPOGRAPHIC GRAMMAR ═══
+   overline → lead → deck → hebrew → data. Every frame reads in that order,
+   whatever the composition does. */
 
-  .tag{position:absolute;top:158px;left:96px;font-size:24px;font-weight:500;
-       letter-spacing:.16em;opacity:.38;direction:ltr;text-transform:uppercase}
-  .spacer{flex:1}
+.over{font-size:23px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;
+      color:var(--cy);direction:ltr;display:flex;align-items:center;gap:18px}
+.over::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(34,211,238,.5),transparent)}
+.over.plain{color:var(--muted)}
+.over.plain::after{background:linear-gradient(90deg,rgba(255,255,255,.18),transparent)}
 
-  /* ── chips ── */
-  .chips{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;direction:ltr}
-  .chip{font-size:28px;font-weight:600;color:var(--accent);
-        background:rgba(34,211,238,.10);border:1px solid rgba(34,211,238,.28);
-        border-radius:100px;padding:12px 26px;white-space:nowrap}
-  .chip.plain{color:#B9C0CE;background:rgba(255,255,255,.05);
-              border-color:rgba(255,255,255,.14)}
+.lead{direction:ltr;font-weight:800;letter-spacing:-.032em;line-height:1.04;
+      font-size:104px}
+.lead.xl{font-size:122px}
+.lead.md{font-size:86px;line-height:1.06}
+.lead.sm{font-size:72px;line-height:1.1;letter-spacing:-.026em}
+.lead .cy{color:var(--cy)}
+.lead .dim{color:#5D6779}
 
-  /* ── image drop zones ── */
-  .zone{position:relative;border:2px dashed rgba(34,211,238,.45);
-        border-radius:18px;background:
-        repeating-linear-gradient(45deg,rgba(34,211,238,.04) 0 20px,transparent 20px 40px),
-        var(--lift);
-        display:flex;flex-direction:column;align-items:center;justify-content:center;
-        gap:12px;text-align:center;flex-shrink:0}
-  .zone .zid{font-size:34px;font-weight:800;color:var(--accent);
-             letter-spacing:.08em;direction:ltr}
-  .zone .zfile{font-size:24px;font-weight:500;color:var(--muted);direction:ltr}
-  .zone .zdesc{font-size:24px;font-weight:400;color:var(--muted);
-               direction:rtl;max-width:76%;line-height:1.4}
+.deck{direction:ltr;font-size:36px;font-weight:400;line-height:1.5;color:var(--deck);
+      max-width:830px}
+.deck b{font-weight:700;color:var(--paper)}
+.deck .cy{color:var(--cy);font-weight:500}
+.deck em{font-style:italic}
 
-  /* a real screenshot, clipped to the region worth showing */
-  .shot{overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,.10);
-        margin-top:38px;flex-shrink:0}
-  .shot img{display:block;width:888px}
+/* Hebrew is a sibling voice, not a caption: same paper white, its own rail. */
+.he-line{direction:rtl;text-align:left;font-size:50px;font-weight:600;line-height:1.28;
+         color:var(--paper);letter-spacing:-.012em;
+         border-left:3px solid var(--cy);padding-left:32px;max-width:860px}
+.he-line.sm{font-size:43px;font-weight:500;line-height:1.3}
+.he-line.right{text-align:right;border-left:none;border-right:3px solid var(--cy);
+               padding-left:0;padding-right:32px;margin-left:auto}
+.he-line.bare{border:none;padding:0}
+.he-line .cy{color:var(--cy)}
 
+.rule{height:1px;background:var(--hair)}
+.rule.cy{height:2px;width:120px;background:var(--cy);opacity:.8;border-radius:2px}
 
-  /* ── stat row ── */
-  .statrow{display:flex;gap:22px;direction:ltr;margin-top:8px}
-  .stat{flex:1;border:1px solid rgba(34,211,238,.26);border-radius:16px;
-        background:rgba(34,211,238,.07);padding:26px 20px;text-align:center}
-  .stat .n{font-size:62px;font-weight:800;color:var(--accent);letter-spacing:-.03em;line-height:1}
-  .stat .l{font-size:24px;font-weight:500;color:var(--muted);margin-top:10px}
+/* pull quote — a second voice inside a frame */
+.pull{direction:ltr;font-size:52px;font-weight:500;line-height:1.24;color:var(--paper);
+      letter-spacing:-.02em;padding-left:36px;border-left:3px solid rgba(34,211,238,.55)}
+.pull .cy{color:var(--cy);font-weight:700}
 
-  /* ── comments, rebuilt from the transcribed text ── */
-  .cmt{display:flex;gap:20px;direction:ltr;text-align:left;
-       background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);
-       border-radius:18px;padding:22px 24px}
-  .cmt .av{width:56px;height:56px;border-radius:50%;flex-shrink:0;
-           background:linear-gradient(140deg,#2B3550,#151C2C)}
-  .cmt .bd{flex:1;min-width:0}
-  .cmt .tx{font-size:29px;font-weight:400;line-height:1.34;color:var(--paper)}
-  .cmt .tx[dir="rtl"]{text-align:right}
-  .cmt .mt{font-size:22px;font-weight:600;color:var(--muted);margin-top:10px}
-  .cmt .mt b{color:var(--accent);font-weight:800}
-  .cmt.hero-cmt{background:rgba(34,211,238,.09);border-color:rgba(34,211,238,.34)}
-  .cmt.hero-cmt .tx{font-size:33px;font-weight:500}
-  .stack{display:flex;flex-direction:column;gap:16px;margin-top:32px}
+/* small data type */
+.cap{font-size:24px;font-weight:500;letter-spacing:.05em;color:var(--muted);direction:ltr}
+.chips{display:flex;flex-wrap:wrap;gap:12px;direction:ltr}
+.chip{font-size:25px;font-weight:600;color:var(--cy);background:rgba(34,211,238,.09);
+      border:1px solid rgba(34,211,238,.30);border-radius:100px;padding:11px 24px;white-space:nowrap}
+.chip.plain{color:#9AA4B6;background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.13)}
 
-  /* ── the keyword column ── */
-  .ring{display:flex;flex-direction:column;gap:11px;margin-top:30px}
-  .rrow{display:flex;align-items:center;gap:18px;direction:ltr;
-        border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:11px}
-  .rrow .av{width:42px;height:42px;border-radius:50%;flex-shrink:0;
-            background:linear-gradient(140deg,#2B3550,#151C2C)}
-  .rrow .w{font-size:34px;font-weight:600;color:var(--paper)}
+/* ── photography ── */
+.ph{position:absolute;overflow:hidden}
+.ph img{position:absolute;display:block;max-width:none;
+        filter:contrast(1.08) saturate(1.06) brightness(1.02)}
+.ph::after{content:'';position:absolute;inset:0;pointer-events:none;
+           background:linear-gradient(180deg,rgba(7,10,17,.28),transparent 34%,rgba(7,10,17,.30));
+           mix-blend-mode:multiply}
+.ph .tone{position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;
+          background:linear-gradient(150deg,rgba(34,211,238,.42),rgba(167,139,250,.30))}
 
-  /* ── cropped region of a larger screenshot ── */
-  .crop{overflow:hidden;border-radius:18px;border:1px solid rgba(255,255,255,.12);
-        flex-shrink:0;position:relative}
-  .crop img{position:absolute;max-width:none}
+/* ══════════════ 01 · HOOK ══════════════ */
+#f01{background:#05070D}
+#f01 .bloom{inset:0;overflow:hidden;z-index:0}
+#f01 .bloom img{position:absolute;width:5000px;left:-1520px;top:-820px;
+                filter:blur(78px) saturate(1.55) brightness(.95) hue-rotate(-14deg)}
+#f01 .wash{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(5,7,13,.58) 0%,rgba(5,7,13,.30) 26%,rgba(5,7,13,.80) 62%,rgba(5,7,13,.96) 100%)}
+/* the still: a cinematic band across the foot of the frame, data set on top of it */
+#f01 .still{left:0;right:0;top:1272px;height:648px;overflow:hidden;z-index:2}
+#f01 .still img{position:absolute;width:4314px;left:-378px;top:-598px;
+  filter:contrast(1.2) saturate(.9) brightness(.52)}
+#f01 .still .fade{position:absolute;inset:0;
+  background:linear-gradient(180deg,#05070D 0%,rgba(5,7,13,.62) 18%,rgba(5,7,13,.50) 60%,rgba(5,7,13,.86) 100%)}
+#f01 .qm{position:absolute;left:22px;top:262px;font-size:520px;font-weight:900;line-height:.7;
+         color:rgba(255,255,255,.055);z-index:2;pointer-events:none;direction:ltr}
+#f01 .nums{display:flex;gap:0;direction:ltr;border-top:1px solid rgba(255,255,255,.22);padding-top:28px}
+#f01 .nums > div{flex:1;padding-right:20px}
+#f01 .nums .n{font-size:92px;font-weight:800;letter-spacing:-.045em;line-height:.94;
+              background:linear-gradient(180deg,#EAF9FD,#5FD8EC);-webkit-background-clip:text;
+              background-clip:text;color:transparent}
+#f01 .nums .l{font-size:21px;font-weight:600;letter-spacing:.22em;color:#9AA4B6;
+              margin-top:11px;text-transform:uppercase}
 
-  .hero{position:absolute;inset:0;border-radius:0;border-width:2px;
-        justify-content:flex-start;padding-top:340px}
-  .hero::after{content:'';position:absolute;inset:0;pointer-events:none;
-    background:linear-gradient(to top,var(--ground) 32%,rgba(8,11,18,.86) 54%,rgba(8,11,18,.42) 100%)}
-  .hero > *{position:relative;z-index:1}
-  .over{position:relative;z-index:2;margin-top:auto}
+/* ══════════════ 02 · ORIGIN ══════════════ */
+#f02{background:radial-gradient(96% 62% at 50% -12%,#241C4A 0%,#0D1024 42%,#070A11 78%)}
+#f02 .beam{position:absolute;left:50%;top:-140px;width:1500px;height:1500px;margin-left:-750px;
+  clip-path:polygon(43% 0,57% 0,100% 100%,0 100%);z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(167,139,250,.40),rgba(34,211,238,.10) 46%,transparent 76%);
+  filter:blur(28px)}
+#f02 .halo{position:absolute;left:50%;top:-260px;width:760px;height:760px;margin-left:-380px;
+  border-radius:50%;z-index:1;pointer-events:none;
+  background:radial-gradient(circle,rgba(199,180,255,.55),transparent 62%);filter:blur(46px)}
+#f02 .tl{display:flex;align-items:flex-end;gap:0;direction:ltr;border-top:1px solid var(--hair);
+         padding-top:26px}
+#f02 .tl .seg{flex:1;position:relative}
+#f02 .tl .yr{font-size:26px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
+#f02 .tl .yr.now{color:var(--cy)}
+#f02 .tl .bar{height:4px;margin-top:16px;border-radius:3px;
+              background:linear-gradient(90deg,rgba(167,139,250,.30),rgba(34,211,238,.85))}
+#f02 .tl .dot{position:absolute;right:0;top:32px;width:18px;height:18px;border-radius:50%;
+              background:var(--cy);box-shadow:0 0 26px rgba(34,211,238,.9)}
 
-  /* ── boxed payload ── */
-  .box{border-left:4px solid var(--accent);padding:6px 0 6px 40px;margin-top:52px}
-  .box .q{font-size:32px;font-weight:400;color:var(--muted)}
-  .box .a{font-size:56px;font-weight:800;line-height:1.16;margin-top:14px;
-          letter-spacing:-.02em}
-  .box .heb{font-size:44px;font-weight:600;color:var(--accent);margin-top:20px;
-            direction:rtl;text-align:left}
+/* ══════════════ 03 · MONICA ══════════════ */
+#f03{background:#060911}
+#f03 .band{left:0;right:0;top:0;height:617px;overflow:hidden;z-index:1}
+#f03 .band img{position:absolute;width:4314px;left:-378px;top:-598px;
+               filter:contrast(1.12) saturate(1.12)}
+#f03 .band .fade{position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(6,9,17,.55) 0%,rgba(6,9,17,0) 26%,rgba(6,9,17,0) 56%,#060911 100%)}
+#f03 .band .edge{position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(6,9,17,.62),transparent 22%,transparent 78%,rgba(6,9,17,.62))}
+#f03 .glowline{position:absolute;left:0;right:0;top:615px;height:2px;z-index:2;
+  background:linear-gradient(90deg,transparent,rgba(34,211,238,.75),transparent)}
+#f03 .pad{top:706px}
+#f03 .tick{top:648px}
+#f03 .statline{display:flex;direction:ltr;border-top:1px solid var(--hair);padding-top:24px;gap:0}
+#f03 .statline > div{flex:1}
+#f03 .statline .n{font-size:54px;font-weight:800;color:var(--cy);letter-spacing:-.03em;line-height:1}
+#f03 .statline .l{font-size:21px;font-weight:500;letter-spacing:.14em;color:var(--muted);
+                  margin-top:10px;text-transform:uppercase}
 
-  /* ── guide list ── */
-  .glist{display:flex;flex-direction:column;gap:17px;margin-top:40px;direction:ltr}
-  .grow{display:flex;align-items:baseline;gap:22px;
-        border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:16px}
-  .gnum{font-size:25px;font-weight:700;color:var(--accent);min-width:44px}
-  .gname{font-size:33px;font-weight:500;flex:1;line-height:1.25}
+/* ══════════════ 04 · THREE WORLDS ══════════════ */
+#f04{background:linear-gradient(180deg,#080C16 0%,#070A11 60%)}
+#f04 .trip{left:0;right:0;top:756px;height:600px;display:flex;gap:6px;z-index:2}
+#f04 .tile{position:relative;flex:1;overflow:hidden}
+#f04 .tile img{position:absolute;width:3723px;top:-530px;filter:contrast(1.14) saturate(1.05)}
+#f04 .tile .scrim{position:absolute;left:0;right:0;bottom:0;height:212px;
+  background:linear-gradient(180deg,transparent,rgba(6,9,16,.80) 46%,rgba(6,9,16,.97))}
+#f04 .tile .idx{position:absolute;left:26px;top:24px;font-size:22px;font-weight:800;
+  letter-spacing:.2em;color:var(--cy);direction:ltr;
+  text-shadow:0 2px 14px rgba(0,0,0,.9)}
+#f04 .tile .cap2{position:absolute;left:24px;right:18px;bottom:24px;direction:ltr}
+#f04 .tile .cap2 .k{font-size:17px;font-weight:700;letter-spacing:.13em;color:var(--cy);
+                    text-transform:uppercase;line-height:1.3;white-space:nowrap}
+#f04 .tile .cap2 .t{font-size:33px;font-weight:800;letter-spacing:-.02em;margin-top:9px;line-height:1.1}
+#f04 .tile .cap2 .m{font-size:20px;font-weight:500;color:#9AA4B6;margin-top:8px;line-height:1.3;white-space:nowrap}
+#f04 .ghost3{position:absolute;right:52px;top:296px;font-size:430px;font-weight:900;line-height:.72;
+  color:transparent;-webkit-text-stroke:2px rgba(34,211,238,.13);z-index:0;direction:ltr}
 
-  /* ── cta ── */
-  .mark{font-size:92px;font-weight:800;letter-spacing:-.03em;line-height:1;direction:ltr}
-  .mark span{color:var(--accent)}
-  .live{font-size:29px;font-weight:600;color:var(--accent);letter-spacing:.16em;
-        margin-top:20px;direction:ltr;text-transform:uppercase}
-  .price{font-size:30px;font-weight:400;color:var(--muted);direction:ltr;
-         margin-top:30px;line-height:1.55}
-  .url{font-size:38px;font-weight:700;direction:ltr;margin-top:26px}
+/* ══════════════ 05 · WALL OF EMOTION ══════════════ */
+#f05{background:radial-gradient(88% 52% at 78% 22%,#12203A 0%,#080C16 52%,#060910 100%)}
+#f05 .mon{display:flex;align-items:flex-end;gap:26px;direction:ltr}
+#f05 .mon .big{font-size:212px;font-weight:900;line-height:.8;letter-spacing:-.05em;
+  background:linear-gradient(170deg,#DFFBFF,#22D3EE 55%,#0B93B0);-webkit-background-clip:text;
+  background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 44px rgba(34,211,238,.34))}
+#f05 .mon .side{padding-bottom:22px}
+#f05 .mon .side .a{font-size:30px;font-weight:700;line-height:1.2;color:var(--paper)}
+#f05 .mon .side .b{font-size:22px;font-weight:500;letter-spacing:.16em;color:var(--muted);
+                   text-transform:uppercase;margin-top:8px}
+.cmt{display:flex;gap:18px;direction:ltr;text-align:left;border-radius:20px;padding:22px 24px;
+     background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10)}
+.cmt .av{width:52px;height:52px;border-radius:50%;flex-shrink:0;
+         background:linear-gradient(140deg,#33405F,#161D2E)}
+.cmt .bd{flex:1;min-width:0}
+.cmt .tx{font-size:27px;font-weight:400;line-height:1.32;color:#DDE3EE}
+.cmt .tx[dir="rtl"]{text-align:right}
+.cmt .mt{font-size:20px;font-weight:600;color:var(--muted);margin-top:9px;letter-spacing:.06em}
+.cmt .mt b{color:var(--cy);font-weight:800}
+.cmt.white{background:var(--paper);border-color:#fff;
+           box-shadow:0 26px 60px rgba(0,0,0,.55)}
+.cmt.white .tx{color:#12172400;color:#131824;font-size:31px;font-weight:500;line-height:1.3}
+.cmt.white .mt{color:#6A7488}
+.cmt.white .mt b{color:#0B93B0}
+.cmt.white .av{background:linear-gradient(140deg,#C3CBDA,#8D97AB)}
+#f05 .fan{position:relative;height:474px}
+#f05 .fan .cmt{position:absolute;left:0;right:0}
+
+/* ══════════════ 06 · WALL OF ACTION ══════════════ */
+#f06{background:linear-gradient(200deg,#04212B 0%,#060B14 46%,#060910 100%)}
+#f06 .col{position:relative;overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 9%,#000 88%,transparent);
+  mask-image:linear-gradient(180deg,transparent,#000 9%,#000 88%,transparent)}
+#f06 .rrow{display:flex;align-items:center;gap:20px;direction:ltr;height:58px;
+           border-bottom:1px solid rgba(255,255,255,.055)}
+#f06 .rrow .av{width:34px;height:34px;border-radius:50%;flex-shrink:0;
+               background:linear-gradient(140deg,#2C3A55,#141A29)}
+#f06 .rrow .w{font-size:33px;font-weight:600;color:#D7DEEA}
+#f06 .rrow .w .cy{color:var(--cy)}
+#f06 .rrow .t{margin-left:auto;font-size:19px;font-weight:500;color:#4E5768;letter-spacing:.08em}
+#f06 .marq{position:absolute;right:-34px;top:120px;height:1560px;z-index:0;pointer-events:none;
+  writing-mode:vertical-rl;overflow:hidden;white-space:nowrap;
+  font-size:132px;font-weight:900;letter-spacing:.04em;color:transparent;
+  -webkit-text-stroke:1.4px rgba(34,211,238,.07)}
+
+/* ══════════════ 07 · THE INSIGHT (inverted) ══════════════ */
+#f07{background:
+  radial-gradient(70% 40% at 84% 6%,rgba(34,211,238,.16),transparent 62%),
+  radial-gradient(60% 36% at 6% 96%,rgba(167,139,250,.14),transparent 60%),
+  #F2F4F8;color:var(--ink)}
+#f07 .grain{opacity:.30;mix-blend-mode:multiply}
+#f07 .over{color:var(--cy-deep)}
+#f07 .over::after{background:linear-gradient(90deg,rgba(11,147,176,.5),transparent)}
+#f07 .lead{color:var(--ink)}
+#f07 .lead .cy{color:var(--cy-deep)}
+#f07 .deck{color:#4B5566}
+#f07 .deck b{color:var(--ink)}
+#f07 .he-line{color:var(--ink);border-left-color:var(--cy-deep)}
+#f07 .payload{background:#080B12;border-radius:26px;padding:52px 56px 56px;
+  box-shadow:0 34px 80px rgba(8,11,18,.30);position:relative;overflow:hidden}
+#f07 .payload::before{content:'';position:absolute;left:0;top:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--cy),rgba(167,139,250,.9),transparent)}
+#f07 .payload .q{font-size:22px;font-weight:600;letter-spacing:.26em;color:var(--cy);
+  text-transform:uppercase;direction:ltr}
+#f07 .payload .a{font-size:58px;font-weight:800;line-height:1.15;letter-spacing:-.03em;
+  color:var(--paper);margin-top:22px;direction:ltr}
+#f07 .payload .a .cy{color:var(--cy)}
+#f07 .payload .h{font-size:40px;font-weight:600;color:#CFE9F1;margin-top:26px;
+  direction:rtl;text-align:left}
+
+/* ══════════════ 08 · NOT A TUTORIAL ══════════════ */
+#f08{background:radial-gradient(80% 48% at 76% 24%,#1A1733 0%,#0A0D19 52%,#060910 100%)}
+#f08 .ghost{right:-160px;top:120px;width:900px;height:900px;overflow:hidden;z-index:0;
+            border-radius:50%;opacity:.30}
+#f08 .ghost img{position:absolute;width:5200px;left:-160px;top:-660px;
+  filter:blur(26px) grayscale(.5) saturate(1.2) brightness(.9)}
+#f08 .por{width:392px;height:392px;border-radius:50%;overflow:hidden;position:relative;
+  flex-shrink:0;box-shadow:0 0 0 2px rgba(34,211,238,.55),0 0 70px rgba(34,211,238,.30),
+  0 30px 70px rgba(0,0,0,.6)}
+#f08 .por img{position:absolute;width:2329px;left:-114px;top:-338px;
+  filter:contrast(1.14) saturate(1.05) brightness(1.04)}
+#f08 .por .tone{position:absolute;inset:0;mix-blend-mode:soft-light;
+  background:linear-gradient(160deg,rgba(34,211,238,.40),rgba(167,139,250,.35))}
+#f08 .por .gr{position:absolute;inset:0;background-image:var(--noise);background-size:180px;
+  opacity:.22;mix-blend-mode:overlay}
+#f08 .split{display:flex;gap:44px;align-items:flex-start}
+#f08 .split .txt{flex:1;min-width:0}
+#f08 .who{direction:ltr;margin-top:20px;text-align:center;width:392px}
+#f08 .two{display:flex;gap:46px;direction:ltr;margin-top:36px}
+#f08 .two > div{flex:1}
+#f08 .two .k{font-size:19px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+             color:var(--muted)}
+#f08 .two .k.on{color:var(--cy)}
+#f08 .two .v{font-size:31px;font-weight:500;line-height:1.34;margin-top:15px;color:#7B8496}
+#f08 .two .v.on{color:var(--paper)}
+#f08 .who .n{font-size:27px;font-weight:700}
+#f08 .who .h{font-size:21px;font-weight:500;letter-spacing:.04em;color:var(--muted);margin-top:7px}
+
+/* ══════════════ 09 · WHAT I BUILT ══════════════ */
+#f09{background:linear-gradient(160deg,#0A101E 0%,#070A11 52%)}
+#f09 .idx{direction:ltr}
+#f09 .grow-row{display:flex;align-items:flex-start;gap:26px;padding:19px 0;
+               border-bottom:1px solid rgba(255,255,255,.075)}
+#f09 .grow-row:last-child{border-bottom:none}
+#f09 .gn{font-size:52px;font-weight:900;line-height:.9;color:transparent;
+  -webkit-text-stroke:1.6px rgba(34,211,238,.75);width:88px;flex-shrink:0;letter-spacing:-.04em}
+#f09 .gt{flex:1;min-width:0}
+#f09 .gt .t{font-size:34px;font-weight:700;line-height:1.18;letter-spacing:-.015em}
+#f09 .gt .d{font-size:22px;font-weight:400;color:#8B95A8;margin-top:7px;line-height:1.35}
+#f09 .callout{border:1px solid rgba(34,211,238,.34);border-radius:22px;
+  background:linear-gradient(140deg,rgba(34,211,238,.10),rgba(34,211,238,.02));
+  padding:32px 38px;display:flex;align-items:center;gap:30px}
+#f09 .callout .lbl{font-size:20px;font-weight:600;letter-spacing:.2em;color:var(--cy);
+  text-transform:uppercase;direction:ltr;line-height:1.4;width:190px;flex-shrink:0}
+#f09 .callout .ttl{font-size:44px;font-weight:800;letter-spacing:-.025em;direction:ltr;line-height:1.1}
+#f09 .callout .heb{font-size:28px;font-weight:600;color:var(--cy);direction:rtl;
+  text-align:left;margin-top:10px}
+
+/* ══════════════ 10 · CTA ══════════════ */
+#f10{background:radial-gradient(78% 44% at 50% 108%,#0B4E5E 0%,#08151F 44%,#060910 78%)}
+#f10 .rings{position:absolute;left:-210px;top:1150px;width:1500px;height:760px;
+  border-radius:50%;z-index:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 70%,rgba(34,211,238,.34),transparent 62%);filter:blur(44px)}
+#f10 .mark{direction:ltr;font-size:146px;font-weight:900;line-height:.92;letter-spacing:-.055em}
+#f10 .mark .cy{color:var(--cy);text-shadow:0 0 44px rgba(34,211,238,.28)}
+#f10 .live{display:inline-flex;align-items:center;gap:14px;font-size:23px;font-weight:700;
+  letter-spacing:.24em;color:var(--cy);text-transform:uppercase;direction:ltr;
+  border:1px solid rgba(34,211,238,.4);border-radius:100px;padding:12px 26px}
+#f10 .live i{width:11px;height:11px;border-radius:50%;background:var(--cy);
+  box-shadow:0 0 16px var(--cy)}
+#f10 .prices{display:flex;direction:ltr;border-top:1px solid var(--hair);padding-top:26px}
+#f10 .prices > div{flex:1}
+#f10 .prices .n{font-size:52px;font-weight:800;letter-spacing:-.03em;line-height:1}
+#f10 .prices .n .cy{color:var(--cy)}
+#f10 .prices .l{font-size:20px;font-weight:500;letter-spacing:.16em;color:var(--muted);
+  margin-top:11px;text-transform:uppercase}
+#f10 .url{direction:ltr;font-size:44px;font-weight:800;color:var(--cy);letter-spacing:-.02em}
 </style>
 
-<!-- ══════════ 01 · HOOK ══════════ -->
+
+<!-- ══════════════════════ 01 · HOOK ══════════════════════
+     Colossal type on a photographic bloom. The whole frame is one question. -->
 <section class="frame" id="f01">
-  <div class="tag">Omer Method · 01</div>
-  <div class="spacer"></div>
-  <div class="en lead">“How did you<br>make that?”</div>
-  <div class="en sub">Three years of the same question.<br>It took me a while to admit <span class="accent">it's the wrong one.</span></div>
-  <div class="hr"></div>
-  <div class="he he-line">שלוש שנים שואלים אותי את זה.<br>לקח לי זמן להבין שזו לא השאלה.</div>
-  <div class="spacer"></div>
-  <div class="statrow">
-    <div class="stat"><div class="n">2M</div><div class="l">views</div></div>
-    <div class="stat"><div class="n">1.6M</div><div class="l">views</div></div>
-    <div class="stat"><div class="n">1.3M</div><div class="l">views</div></div>
-  </div>
-  <div class="en" style="font-size:27px;color:#7E8798;margin-top:20px">Three reels. One character who doesn't exist.</div>
-</section>
-
-<!-- ══════════ 02 · ORIGIN ══════════ -->
-<section class="frame" id="f02">
-  <div class="tag">Omer Method · 02</div>
-  <div class="spacer"></div>
-  <div class="en lead">AI handed everyone<br>a Hollywood studio.</div>
-  <div class="en sub">I've been here since the beginning, learning the tools as they kept changing. What I noticed is that almost nobody knows what to do once they're inside that studio.</div>
-  <div class="hr"></div>
-  <div class="he he-line">ה־AI נתן לכולם אולפן.<br>רובם לא יודעים מה לעשות בתוכו.</div>
-  <div class="spacer"></div>
-</section>
-
-<!-- ══════════ 03 · MONICA ══════════ -->
-<section class="frame" id="f03">
-  <div class="tag">Omer Method · 03</div>
-  <div class="en lead sm">A song by someone who<br>doesn't exist became<br><span class="accent">a real song.</span></div>
-  <div class="en sub">I built Monica to be consistent enough that nobody would clock her as AI. Then people kept asking where they could hear her song — so I put it on Spotify.</div>
-  <div class="crop" style="width:600px;height:582px;margin-top:36px">
-    <img src="../02-assets/screenshots/proof-three-worlds.png"
-         style="width:2055px;left:-96px;top:-288px">
-  </div>
-  <div class="he he-line sm">ביקשו לשמוע את השיר שלה.<br>אז העליתי אותו לספוטיפיי.</div>
-  <div class="spacer"></div>
-</section>
-
-<!-- ══════════ 04 · THREE WORLDS ══════════ -->
-<section class="frame" id="f04">
-  <div class="tag">Omer Method · 04</div>
-  <div class="en lead sm">Then I took the same<br>thinking somewhere else.</div>
-  <div class="en sub">Different tools. Different formats. Different audiences.</div>
-  <div class="shot" style="height:372px">
+  <div class="ph bloom layer" style="inset:0">
     <img src="../02-assets/screenshots/proof-three-worlds.png" alt="">
   </div>
-  <div class="chips">
-    <div class="chip">1M+ views</div>
-    <div class="chip">16 episodes</div>
-    <div class="chip plain">the method, applied to itself</div>
+  <div class="wash"></div>
+  <div class="ph still layer">
+    <img src="../02-assets/screenshots/proof-three-worlds.png" alt="">
+    <div class="fade"></div>
   </div>
-  <div class="spacer"></div>
-  <div class="en lead" style="margin-top:24px;font-size:62px">What stayed the same was<br><span class="accent">the order of my decisions.</span></div>
-  <div class="he he-line">מה שנשאר קבוע — סדר ההחלטות.</div>
+  <div class="qm">&ldquo;</div>
+  <div class="grain"></div>
+  <div class="tick"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><b>Omer Method · 01</b></div>
+
+  <div class="pad">
+    <div class="over plain">Three years · the same question</div>
+    <div class="lead xl" style="margin-top:38px">&ldquo;How did you<br>make that?&rdquo;</div>
+    <div class="deck" style="margin-top:36px;max-width:820px;font-size:34px">It's the first thing anyone asks me about an
+      AI video. For three years, in every language, the same six words. It took me a long time to
+      admit <b>it is the wrong question</b> — and that what people actually want sits somewhere else
+      entirely.</div>
+    <div class="he-line" style="margin-top:38px">שלוש שנים שואלים אותי את זה.<br>לקח לי זמן להבין שזו לא השאלה.</div>
+    <div class="grow"></div>
+    <div class="nums">
+      <div><div class="n">2M</div><div class="l">views</div></div>
+      <div><div class="n">1.6M</div><div class="l">views</div></div>
+      <div><div class="n">1.3M</div><div class="l">views</div></div>
+    </div>
+    <div class="cap" style="margin-top:22px;color:#8A93A6">Three reels. One character who does not exist.</div>
+  </div>
 </section>
 
-<!-- ══════════ 05 · WHAT THEY SAID ══════════ -->
+
+<!-- ══════════════════════ 02 · ORIGIN ══════════════════════
+     Type only, but lit. A violet stage beam from above, a timeline at the foot. -->
+<section class="frame" id="f02">
+  <div class="halo"></div>
+  <div class="beam"></div>
+  <div class="grain"></div>
+  <div class="vig"></div>
+  <div class="tick"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><b>Omer Method · 02</b></div>
+
+  <div class="pad">
+    <div class="over">Where this starts</div>
+    <div class="lead md" style="margin-top:34px">AI handed everyone<br>a Hollywood studio.</div>
+    <div class="deck" style="margin-top:34px;font-size:34px">I have been inside this since the first models were barely usable —
+      learning the tools while they changed under me, month after month. And the thing I keep
+      noticing has nothing to do with the tools.</div>
+    <div class="pull" style="margin-top:44px;font-size:56px">Almost nobody knows what to do<br>once they are <span class="cy">standing inside the studio.</span></div>
+    <div class="he-line right" style="margin-top:44px;font-size:46px">ה־AI נתן לכולם אולפן.<br>רובם לא יודעים מה לעשות בתוכו.</div>
+    <div class="grow"></div>
+    <div class="tl" style="margin-top:24px">
+      <div class="seg"><div class="yr">2023</div><div class="bar" style="background:rgba(167,139,250,.35)"></div></div>
+      <div class="seg"><div class="yr">2024</div><div class="bar" style="background:rgba(140,175,240,.45)"></div></div>
+      <div class="seg"><div class="yr">2025</div><div class="bar" style="background:rgba(90,200,235,.6)"></div></div>
+      <div class="seg"><div class="yr now">2026</div><div class="bar"></div><div class="dot"></div></div>
+    </div>
+    <div class="cap" style="margin-top:20px">Three years of building, every week, without a break.</div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ 03 · MONICA ══════════════════════
+     Edge-to-edge photograph up top, the story underneath it. -->
+<section class="frame" id="f03">
+  <div class="ph band layer">
+    <img src="../02-assets/screenshots/proof-three-worlds.png" alt="">
+    <div class="tone" style="opacity:.5"></div>
+    <div class="fade"></div>
+    <div class="edge"></div>
+  </div>
+  <div class="glowline"></div>
+  <div class="grain"></div>
+  <div class="tick"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><b>Omer Method · 03</b></div>
+
+  <div class="pad">
+    <div class="over">Proof 01 — Monica Andrew</div>
+    <div class="lead sm" style="margin-top:26px">A song by someone who<br>doesn't exist became<br><span class="cy">a real song.</span></div>
+    <div class="deck" style="margin-top:30px;font-size:33px">I built her to be consistent enough that nobody would clock her as AI —
+      the face, the voice, the world, the continuity between one video and the next. Then people
+      started asking me where they could actually listen to her song. So I put it on Spotify.</div>
+    <div class="he-line sm" style="margin-top:32px">ביקשו לשמוע את השיר שלה.<br>אז העליתי אותו לספוטיפיי.</div>
+    <div class="grow"></div>
+    <div class="statline">
+      <div><div class="n">90K</div><div class="l">followers</div></div>
+      <div><div class="n">Spotify</div><div class="l">+ Apple Music</div></div>
+      <div><div class="n">100s</div><div class="l">of viral videos</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ 04 · THREE WORLDS ══════════════════════
+     Full-bleed triptych. Three faces, three worlds, one grid. -->
+<section class="frame" id="f04">
+  <div class="ghost3">3</div>
+  <div class="grain"></div>
+  <div class="tick"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><b>Omer Method · 04</b></div>
+
+  <div class="trip layer">
+    <div class="tile">
+      <img src="../02-assets/screenshots/proof-three-worlds.png" style="width:4247px;left:-623px;top:-651px" alt="">
+      <div class="scrim"></div>
+      <div class="idx">01</div>
+      <div class="cap2"><div class="k">An AI singer</div><div class="t">Monica Andrew</div>
+        <div class="m">90K followers · a real song</div></div>
+    </div>
+    <div class="tile">
+      <img src="../02-assets/screenshots/proof-three-worlds.png" style="left:-1671px" alt="">
+      <div class="scrim"></div>
+      <div class="idx">02</div>
+      <div class="cap2"><div class="k">A sitcom made with AI</div><div class="t">Only in Israel</div>
+        <div class="m">Over a million views</div></div>
+    </div>
+    <div class="tile">
+      <img src="../02-assets/screenshots/proof-three-worlds.png" style="left:-2712px" alt="">
+      <div class="scrim"></div>
+      <div class="idx">03</div>
+      <div class="cap2"><div class="k">An agency web series</div><div class="t">BRIEF 24</div>
+        <div class="m">The method on itself</div></div>
+    </div>
+  </div>
+
+  <div class="pad">
+    <div class="over">Proof 02 — it travels</div>
+    <div class="lead" style="margin-top:32px">Three worlds.<br><span class="cy">One method.</span></div>
+    <div class="deck" style="margin-top:24px;max-width:930px;font-size:32px">Not the same tool, not the same format,
+      not the same audience.</div>
+    <div class="grow"></div>
+    <div class="pull" style="font-size:46px;margin-bottom:30px">What stayed the same was<br><span class="cy">the order of my decisions.</span></div>
+    <div class="he-line sm">מה שנשאר קבוע — סדר ההחלטות.</div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ 05 · WALL OF EMOTION ══════════════════════
+     A monument number, then the evidence fanned beneath it. -->
 <section class="frame" id="f05">
-  <div class="tag">Omer Method · 05</div>
-  <div class="en sub" style="margin-top:0">Thousands of comments, in four languages. One of them picked up 889 likes on its own.</div>
-  <div class="stack">
-    <div class="cmt hero-cmt"><div class="av"></div><div class="bd">
-      <div class="tx">Stand tall like the seeds of Jacob. The people of God's covenant. God bless Israel. ❤️❤️❤️</div>
-      <div class="mt">English · <b>889 likes</b></div></div></div>
-    <div class="cmt"><div class="av"></div><div class="bd">
-      <div class="tx">Wow. So proud that our grandson is part of such an historic event.</div>
-      <div class="mt">English · <b>128 likes</b></div></div></div>
-    <div class="cmt"><div class="av"></div><div class="bd">
-      <div class="tx" dir="rtl">מקסים כמה צמרמורת היא נותנת, כמה אהבה יש בהופעה הזו</div>
-      <div class="mt"><bdi>עברית</bdi> · <b>112 likes</b></div></div></div>
-    <div class="cmt"><div class="av"></div><div class="bd">
-      <div class="tx">Wouah sublimissime — elle est une si belle représentante d'Israël. Formidable</div>
-      <div class="mt">Français · <b>62 likes</b></div></div></div>
-    <div class="cmt"><div class="av"></div><div class="bd">
-      <div class="tx">Que lindoooo</div>
-      <div class="mt">Português</div></div></div>
+  <div class="grain"></div>
+  <div class="vig"></div>
+  <div class="tick"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><b>Omer Method · 05</b></div>
+
+  <div class="pad">
+    <div class="over">The comments</div>
+    <div class="deck" style="margin-top:24px;max-width:830px;font-size:34px">Thousands of them, in four languages, on
+      videos that were never about technology. One of them picked up more likes on its own than
+      most posts get.</div>
+
+    <div class="mon" style="margin-top:28px">
+      <div class="big">889</div>
+      <div class="side"><div class="a">likes</div><div class="b">on one comment</div></div>
+    </div>
+
+    <div class="fan" style="margin-top:34px">
+      <div class="cmt white" style="top:0;transform:rotate(-1.4deg)">
+        <div class="av"></div><div class="bd">
+        <div class="tx">Stand tall like the seeds of Jacob. The people of God's covenant. God bless Israel. ❤️</div>
+        <div class="mt">English · <b>889 likes</b></div></div></div>
+      <div class="cmt" style="top:180px;transform:rotate(1.1deg);left:34px">
+        <div class="av"></div><div class="bd">
+        <div class="tx">Wow. So proud that our grandson is part of such an historic event.</div>
+        <div class="mt">English · <b>128 likes</b></div></div></div>
+      <div class="cmt" style="top:322px;transform:rotate(-.8deg);right:26px">
+        <div class="av"></div><div class="bd">
+        <div class="tx" dir="rtl">מקסים כמה צמרמורת היא נותנת, כמה אהבה יש בהופעה הזו</div>
+        <div class="mt"><bdi>עברית</bdi> · <b>112 likes</b></div></div></div>
+    </div>
+
+    <div class="chips" style="margin-top:10px">
+      <div class="chip">4 languages</div>
+      <div class="chip plain">934 comments from Facebook alone</div>
+    </div>
+    <div class="grow" style="min-height:46px"></div>
+    <div class="lead sm">Now look at what they<br>were <span class="cy">actually reacting to.</span></div>
+    <div class="he-line sm" style="margin-top:32px">תסתכלו על מה הם באמת הגיבו.</div>
   </div>
-  <div class="chips">
-    <div class="chip">4 languages</div>
-    <div class="chip plain">934 comments from Facebook</div>
-  </div>
-  <div class="spacer"></div>
-  <div class="en lead sm">Look at what people<br><span class="accent">actually responded to.</span></div>
-  <div class="he he-line sm">תסתכלו על מה הם באמת הגיבו.</div>
 </section>
 
-<!-- ══════════ 06 · THEY MOVED ══════════ -->
+
+<!-- ══════════════════════ 06 · WALL OF ACTION ══════════════════════
+     Repetition as the argument. A log of one word, over and over. -->
 <section class="frame" id="f06">
-  <div class="tag">Omer Method · 06</div>
-  <div class="en sub" style="margin-top:0">I asked for one word in the comments. This is what came back.</div>
-  <div class="ring">
-    <div class="rrow"><div class="av"></div><div class="w">Ring! Great idea 💗</div></div>
-    <div class="rrow"><div class="av"></div><div class="w">Ring 👀</div></div>
-    <div class="rrow"><div class="av"></div><div class="w">Ring</div></div>
-    <div class="rrow"><div class="av"></div><div class="w">Ring</div></div>
-    <div class="rrow"><div class="av"></div><div class="w">Ring</div></div>
-    <div class="rrow"><div class="av"></div><div class="w">Ring</div></div>
-    <div class="rrow"><div class="av"></div><div class="w">Ring</div></div>
-    <div class="rrow" style="border:none"><div class="av"></div><div class="w">Ring</div></div>
+  <div class="marq">Ring · Ring · Ring · Ring · Ring · Ring · Ring · Ring</div>
+  <div class="grain"></div>
+  <div class="vig"></div>
+  <div class="tick"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><b>Omer Method · 06</b></div>
+
+  <div class="pad">
+    <div class="over">One keyword</div>
+    <div class="deck" style="margin-top:24px;max-width:760px">On one video I asked for a single word in the comments.
+      This is a fraction of what came back — and it kept going for days.</div>
+
+    <div class="col" style="margin-top:34px;height:640px">
+      <div class="rrow"><div class="av"></div><div class="w">Ring! Great idea 💗</div><div class="t">2h</div></div>
+      <div class="rrow"><div class="av"></div><div class="w">Ring 👀</div><div class="t">2h</div></div>
+      <div class="rrow"><div class="av"></div><div class="w">Ring</div><div class="t">3h</div></div>
+      <div class="rrow"><div class="av"></div><div class="w">Ring</div><div class="t">3h</div></div>
+      <div class="rrow"><div class="av"></div><div class="w">Ring please 🙏</div><div class="t">4h</div></div>
+      <div class="rrow"><div class="av"></div><div class="w">Ring</div><div class="t">5h</div></div>
+      <div class="rrow"><div class="av"></div><div class="w">Ring</div><div class="t">6h</div></div>
+      <div class="rrow"><div class="av"></div><div class="w">Ring</div><div class="t">8h</div></div>
+      <div class="rrow"><div class="av"></div><div class="w">Ring 🔥</div><div class="t">11h</div></div>
+      <div class="rrow"><div class="av"></div><div class="w">Ring</div><div class="t">14h</div></div>
+      <div class="rrow"><div class="av"></div><div class="w">Ring</div><div class="t">1d</div></div>
+    </div>
+
+    <div class="grow"></div>
+    <div class="lead sm" style="margin-top:26px">They stopped watching<br>and <span class="cy">started typing.</span></div>
+    <div class="deck" style="margin-top:26px;font-size:32px">That is the whole difference between content people admire
+      and content that actually does something.</div>
+    <div class="he-line sm" style="margin-top:30px">מילה אחת, וטור שלם של אנשים.</div>
   </div>
-  <div class="spacer"></div>
-  <div class="en lead sm">Then they stopped watching<br>and <span class="accent">started typing.</span></div>
-  <div class="en sub">That's the difference between content people admire and content that actually does something.</div>
-  <div class="he he-line sm">מילה אחת, וטור שלם של אנשים.</div>
 </section>
 
-<!-- ══════════ 07 · THE INSIGHT ══════════ -->
-<section class="frame" id="f07">
-  <div class="tag">Omer Method · 07</div>
-  <div class="spacer"></div>
-  <div class="en lead">Not one of them<br>mentioned the AI.</div>
-  <div class="en sub">They were reacting to the story. Not <em>what</em> I made — <b>how I told it.</b></div>
-  <div class="he he-line sm">אף אחד לא הזכיר את ה־AI.<br>הם הגיבו לסיפור.</div>
 
-  <div class="box">
-    <div class="q">So what is the method?</div>
-    <div class="a">The order of decisions<br>you make <span class="accent">before you ever<br>write a prompt.</span></div>
-    <div class="heb">סדר ההחלטות שלפני כל פרומפט.</div>
+<!-- ══════════════════════ 07 · THE INSIGHT ══════════════════════
+     The one inverted frame. Paper ground, ink type, the payload in a dark card. -->
+<section class="frame paperframe" id="f07">
+  <div class="grain"></div>
+  <div class="tick"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><b>Omer Method · 07</b></div>
+
+  <div class="pad">
+    <div class="over">Read the comments again</div>
+    <div class="lead" style="margin-top:34px">Not one of them<br>mentioned <span class="cy">the AI.</span></div>
+    <div class="deck" style="margin-top:36px">Not the model, not the render, not the workflow. They were reacting to a
+      story — to a character they believed in, to a moment that landed. Not <em>what</em> I made.
+      <b>How I told it.</b></div>
+    <div class="he-line sm" style="margin-top:34px">אף אחד לא הזכיר את ה־AI.<br>הם הגיבו לסיפור.</div>
+    <div class="grow"></div>
+    <div class="payload">
+      <div class="q">So what is the method?</div>
+      <div class="a">The order of decisions<br>you make <span class="cy">before you<br>ever write a prompt.</span></div>
+      <div class="h">סדר ההחלטות שלפני כל פרומפט.</div>
+    </div>
   </div>
-  <div class="spacer"></div>
 </section>
 
-<!-- ══════════ 08 · NOT A TUTORIAL ══════════ -->
+
+<!-- ══════════════════════ 08 · NOT A TUTORIAL ══════════════════════
+     Split frame. A face on the right, the argument on the left, the line below. -->
 <section class="frame" id="f08">
-  <div class="tag">Omer Method · 08</div>
-  <div class="spacer"></div>
-  <div class="en sub" style="margin-top:0">I'm not here to teach you how to make an AI video. That part is easy now, and honestly it's the least interesting thing about any of this.</div>
-  <div class="en lead" style="margin-top:44px">It doesn't replace you.<br><span class="accent">It sharpens what<br>you already do.</span></div>
-  <div class="hr"></div>
-  <div class="he he-line sm">ללמד סרטון AI זה הקל.<br>הקשה — שהוא ישא את העבודה שלכם.</div>
-  <div class="spacer"></div>
+  <div class="ph ghost layer">
+    <img src="../02-assets/screenshots/omer-profile.png" alt="">
+  </div>
+  <div class="grain"></div>
+  <div class="vig"></div>
+  <div class="tick"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><b>Omer Method · 08</b></div>
+
+  <div class="pad">
+    <div class="split">
+      <div class="txt">
+        <div class="over">What I am not selling</div>
+        <div class="deck" style="margin-top:28px;font-size:33px">I am not here to teach you how to make an AI video.
+          That part is easy now, and honestly it is the least interesting thing about any of this.</div>
+        <div class="rule cy" style="margin-top:32px"></div>
+      </div>
+      <div>
+        <div class="por">
+          <img src="../02-assets/screenshots/omer-profile.png" alt="">
+          <div class="tone"></div><div class="gr"></div>
+        </div>
+        <div class="who"><div class="n">Omer</div><div class="h">@omer_creatorai</div></div>
+      </div>
+    </div>
+
+    <div class="rule" style="margin-top:46px"></div>
+    <div class="two">
+      <div><div class="k">The easy part</div><div class="v">Making the video.</div></div>
+      <div><div class="k on">The part worth paying for</div>
+        <div class="v on">Turning it into leverage for the work you were already doing.</div></div>
+    </div>
+    <div class="grow"></div>
+    <div class="lead sm">It doesn't replace you.<br><span class="cy">It sharpens what<br>you already do.</span></div>
+    <div class="he-line sm" style="margin-top:34px">ללמד סרטון <bdi>AI</bdi> זה הקל.<br>הקשה — שהוא ישא את העבודה שלכם.</div>
+  </div>
 </section>
 
-<!-- ══════════ 09 · WHAT I BUILT ══════════ -->
+
+<!-- ══════════════════════ 09 · WHAT I BUILT ══════════════════════
+     A contents page. Ghost numerals, real chapter names, the loop closed at the foot. -->
 <section class="frame" id="f09">
-  <div class="tag">Omer Method · 09</div>
-  <div class="en lead sm">Five guides.<br><span class="accent">How I actually think.</span></div>
-  <div class="en sub">Months of writing it, deleting it, and writing it again. Not a tool list.</div>
-  <div class="glist">
-    <div class="grow"><div class="gnum">01</div><div class="gname">From an Idea to a Video That Works</div></div>
-    <div class="grow"><div class="gnum">02</div><div class="gname">Monica Method</div></div>
-    <div class="grow"><div class="gnum">03</div><div class="gname">Don't Write a Prompt. Direct an Outcome.</div></div>
-    <div class="grow"><div class="gnum">04</div><div class="gname">Turn Your World into a Web Series</div></div>
-    <div class="grow" style="border:none"><div class="gnum">05</div><div class="gname">Inside the Creative Room</div></div>
-  </div>
-  <div class="he he-line sm">חודשים של לכתוב, למחוק ולכתוב שוב.</div>
-  <div class="spacer"></div>
-  <div class="box" style="margin-top:0">
-    <div class="q">Guide 01, chapter 2</div>
-    <div class="a" style="font-size:46px">“The Second Question”</div>
-    <div class="heb">↑ זו השאלה הנכונה</div>
+  <div class="grain"></div>
+  <div class="tick"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><b>Omer Method · 09</b></div>
+
+  <div class="pad">
+    <div class="over">What I built</div>
+    <div class="lead md" style="margin-top:30px">Five guides.<br><span class="cy">How I actually think.</span></div>
+    <div class="deck" style="margin-top:28px;font-size:33px;max-width:790px">Months of writing it, deleting it and writing it
+      again. Not a tool list — the order I work in, start to finish.</div>
+
+    <div class="idx" style="margin-top:34px">
+      <div class="grow-row"><div class="gn">01</div><div class="gt">
+        <div class="t">From an Idea to a Video That Works</div>
+        <div class="d">Find the story, crack its core, turn it into a production plan.</div></div></div>
+      <div class="grow-row"><div class="gn">02</div><div class="gt">
+        <div class="t">Monica Method</div>
+        <div class="d">An AI character with identity, audience and consistency.</div></div></div>
+      <div class="grow-row"><div class="gn">03</div><div class="gt">
+        <div class="t">Don't Write a Prompt. Direct an Outcome.</div>
+        <div class="d">Performance, camera, timing, sound — decisions a model can execute.</div></div></div>
+      <div class="grow-row"><div class="gn">04</div><div class="gt">
+        <div class="t">Turn Your World into a Web Series</div>
+        <div class="d">An episode engine, a series bible and the full AI workflow.</div></div></div>
+      <div class="grow-row"><div class="gn">05</div><div class="gt">
+        <div class="t">Inside the Creative Room</div>
+        <div class="d">A business brief taken apart, and produced end to end.</div></div></div>
+    </div>
+
+    <div class="he-line sm" style="margin-top:32px">חודשים של לכתוב, למחוק ולכתוב שוב.</div>
+    <div class="grow"></div>
+    <div class="callout">
+      <div class="lbl">Guide 01<br>Chapter 2</div>
+      <div><div class="ttl">&ldquo;The Second Question&rdquo;</div>
+        <div class="heb">זו השאלה הנכונה — זו שפתחנו בה</div></div>
+    </div>
   </div>
 </section>
 
-<!-- ══════════ 10 · CTA ══════════ -->
+
+<!-- ══════════════════════ 10 · CTA ══════════════════════
+     Brand frame. The wordmark carries the weight, the numbers sit quietly under it. -->
 <section class="frame" id="f10">
-  <div class="tag">Omer Method · 10</div>
-  <div class="spacer"></div>
-  <div class="en lead sm">Does it click overnight?<br>No. <span class="accent">It's a muscle.</span></div>
-  <div class="en sub">But after three years of building this, I'm convinced anyone can train it.</div>
-  <div class="he he-line">לא קורה ברגע. זה שריר.<br>אבל כל אחד יכול לאמן אותו.</div>
-  <div class="spacer"></div>
-  <div class="mark">Omer <span>Method</span></div>
-  <div class="live">Live now · באוויר</div>
-  <div class="price">Five guides · $19 each · $49 for all five<br>Permanent access</div>
-  <div class="url accent">omermethod.com</div>
+  <div class="rings"></div>
+  <div class="grain"></div>
+  <div class="tick"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><b>Omer Method · 10</b></div>
+
+  <div class="pad">
+    <div class="over">The honest part</div>
+    <div class="lead sm" style="margin-top:30px">Does it click overnight?<br><span class="dim">No.</span> <span class="cy">It's a muscle.</span></div>
+    <div class="deck" style="margin-top:32px;max-width:800px">You train it by making things, looking at them honestly and making
+      the next one better. After three years of exactly that, I am convinced anyone can build it.</div>
+    <div class="he-line sm" style="margin-top:34px">לא קורה ברגע. זה שריר.<br>אבל כל אחד יכול לאמן אותו.</div>
+
+    <div class="grow"></div>
+    <div class="rule" style="margin-bottom:34px"></div>
+    <div class="mark">Omer<br><span class="cy">Method</span></div>
+    <div style="margin-top:24px"><span class="live"><i></i>Live now · <bdi>באוויר</bdi></span></div>
+    <div class="prices" style="margin-top:32px">
+      <div><div class="n">$19</div><div class="l">one guide</div></div>
+      <div><div class="n"><span class="cy">$49</span></div><div class="l">all five</div></div>
+      <div><div class="n">∞</div><div class="l">permanent access</div></div>
+    </div>
+    <div class="url" style="margin-top:28px">omermethod.com</div>
+  </div>
 </section>
