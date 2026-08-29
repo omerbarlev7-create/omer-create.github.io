@@ -125,12 +125,12 @@ No two adjacent frames share an archetype.
 | 02 | Type only, lit | Violet stage beam from above, pull quote, a 2023→2026 timeline at the foot |
 | 03 | Full-bleed photograph off the top edge | 1080×617 Monica still, type block below, stat row at the foot |
 | 04 | Full-bleed triptych | Three 356×600 portraits edge to edge, captions inside the tiles, ghost `3` |
-| 05 | Monument + evidence collage | `889` at 212px, one white comment card among dark ones, fanned and rotated |
-| 06 | Dense repetition column | Eleven rows of one word, masked to fade at both ends, ghost vertical marquee |
+| 05 | Monument + data ledger | `889` at 212px, then a ruled ledger of the four languages and the Facebook count |
+| 06 | Typographic word field | Eighteen settings of one word in three complete rows, masked to fade out, ghost vertical marquee |
 | 07 | **Inverted** — paper ground, ink type | The one colour break; the payload sits in a dark card inside the light frame |
 | 08 | Split | Portrait circle right, argument left, a two-column easy/hard contrast, then the line |
 | 09 | Contents page | Ghost-outlined numerals 01–05, chapter names, descriptors, callout at the foot |
-| 10 | Brand close | 146px stacked wordmark with a cyan bloom, price row, URL |
+| 10 | Brand close | 146px stacked wordmark with a cyan bloom, a scope row, URL. **No prices** |
 
 ### The one constant
 
@@ -189,3 +189,15 @@ Three checks, all against the rendered DOM:
    do not catch a stray badge in a crop, a headline that wrapped into an orphan,
    a caption row that fell out of alignment, or a frame that is simply dead.
    Every one of those happened on the first pass here and only the eye caught them.
+
+## Two rules learned the hard way
+
+**Never mock up a screenshot.** Frames 05 and 06 first rebuilt real comments as
+styled cards — avatars, like counts, timestamps. They read as screenshots without
+being screenshots, which is worse than showing nothing: the viewer cannot tell
+what is evidence and what is art direction. The evidence is now carried as data
+(a monument numeral, a ruled ledger) and as an openly typographic device (a field
+of one repeated word). Both are honest about being design.
+
+**No prices in the sequence.** The close names the scope — five guides, permanent
+access — and sends people to the site. Pricing is the landing page's job.
