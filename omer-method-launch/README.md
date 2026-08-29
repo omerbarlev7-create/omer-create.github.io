@@ -43,7 +43,7 @@ That insight is the product, so the sale lands as a conclusion rather than a pit
 - [x] Frame 8 — text only, no portrait needed
 - [x] Frame export — 10 PNGs at 1080×1920 in `01-stories/png/`
 - [x] All 10 frames complete — no outstanding asset dependencies
-- [ ] Pinned carousel
+- [x] Pinned carousel — 9 slides at 1080×1350 in `03-carousel/png/`
 
 ## Rendering the frames
 
@@ -67,7 +67,29 @@ No frame waits on an upload any more:
 
 - **Frames 3 and 4** crop regions out of `proof-three-worlds.png`, the site's
   own THE PROOF section, using CSS clipping rather than an image library.
-- **Frames 5 and 6** rebuild the comments from the transcript in
-  `02-assets/comments-inventory.md` as styled cards. This beats a screenshot:
-  legible at story size, on-palette, and no usernames to blur.
+- **Frames 5 and 6** carry the comment evidence as data and as an openly
+  typographic device. Never as mocked-up comment cards — those read as
+  screenshots without being screenshots.
 - **Frame 1** carries the view counts as a stat row instead of a grid capture.
+
+## The pinned carousel
+
+`03-carousel/` — nine slides at **1080×1350** (4:5), same Signal & Grain
+language re-cut for the feed. `caption.md` holds the bilingual caption,
+hashtags and publishing notes.
+
+```bash
+node 03-carousel/render.mjs   # writes 03-carousel/png/slide-01..09.png
+```
+
+The render script also runs two checks: content must fit each slide's `.pad`,
+and **slide 01's key type must sit inside y 135–1215** — the centre square
+Instagram crops to in the profile grid. A cover that reads fine full-size can
+lose its headline entirely as a grid tile.
+
+### Story vs carousel
+
+They tell the same story to different readers. The story sequence is for people
+who already follow and tap through; the carousel is for someone who just landed
+on the profile cold, which is why it opens on the three faces and the proof
+rather than on the question.
