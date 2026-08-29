@@ -18,6 +18,14 @@ other AI account.
 
 ---
 
+> **Voice and hierarchy were reversed after the first pass.** English now leads
+> (88px, paper-white) and Hebrew supports beneath it (37px, muted) — the comment
+> evidence shows four languages, so English is the line that has to land. Copy is
+> first-person and sentence-case throughout; the exact rendered wording lives in
+> `frames.html`, which is the source of truth for what ships.
+
+---
+
 ## Frame 1 — HOOK
 
 **Visual:** `A3` Monica reels grid, 2M view count enlarged and pushed forward.

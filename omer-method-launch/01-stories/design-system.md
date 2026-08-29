@@ -38,43 +38,68 @@ Fallback stack: `Rubik, Heebo, "Noto Sans Hebrew", Arial, sans-serif`
 
 | Level | Script | Size | Weight | Notes |
 |---|---|---|---|---|
-| Headline | Hebrew | 96–112px | 900 | `line-height: 1.15`, `dir="rtl"` |
-| Headline | English | 46–54px | 700 | UPPERCASE, `letter-spacing: 0.04em`, colour `#8B93A7` |
-| Body | Hebrew | 60–68px | 500 | |
-| Body | English | 34–40px | 500 | UPPERCASE, `letter-spacing: 0.03em` |
-| Stat chip | Both | 38px | 800 | Accent colour, pill background `rgba(34,211,238,0.12)` |
-| Corner label | Both | 26px | 600 | `letter-spacing: 0.18em`, 45% opacity |
+| Lead | English | 74–88px | 800 | `line-height: 1.1`, `letter-spacing: -0.028em` |
+| Sub | English | 41px | 400 | colour `#B9C0CE`, max-width 900px |
+| Support | Hebrew | 37px | 500 | colour `#7E8798`, `dir="rtl"` |
+| Method box | English | 56px | 800 | left accent bar, no fill |
+| Stat chip | English | 28px | 600 | accent pill, `rgba(34,211,238,0.10)` |
+| Corner label | English | 24px | 500 | `letter-spacing: 0.16em`, 38% opacity |
 
 ### Bilingual layout rule
 
-**Hebrew on top, larger. English below, smaller, dimmer.**
+**English leads. Hebrew supports.**
 
-Not two equal blocks — that reads as a translated document and halves the impact
-of both. The Hebrew carries the emotion; the English carries the meaning for the
-global audience. A ~2:1 size ratio and a colour step make the hierarchy obvious
-at a glance.
+The audience spans four languages — the comment thread alone carries Hebrew,
+English, French and Portuguese — so English is the line that has to land, and it
+gets the size, the weight and the paper-white. Hebrew sits below at roughly 40%
+of the lead size in muted grey: present for the Israeli audience, never
+competing for the same eye.
 
 ```
 ┌──────────────────────────────┐
 │                              │
-│   HEBREW HEADLINE            │  ← 100px / 900 / white / RTL
-│   HEBREW HEADLINE            │
-│                              │  ← 40px gap
-│   ENGLISH HEADLINE           │  ← 50px / 700 / #8B93A7 / LTR / UPPER
+│  English lead                │  ← 88px / 800 / #F2F4F8
+│  English lead                │
+│                              │
+│  English sub, one or two     │  ← 41px / 400 / #B9C0CE
+│  sentences of real voice.    │
+│  ────                        │
+│  שורת עברית תומכת            │  ← 37px / 500 / #7E8798
 │                              │
 └──────────────────────────────┘
 ```
 
-Separator between the blocks when a frame is dense: a 3px × 120px accent rule at
-40% opacity, aligned right (Hebrew side).
-
 ### Direction
 
-- Hebrew blocks: `direction: rtl; text-align: right`
-- English blocks: `direction: ltr; text-align: right` — **kept right-aligned** so
-  both blocks share one edge. Left-aligning the English breaks the axis.
-- Any block mixing scripts or containing numbers: wrap the Latin/numeric run in
-  `<span dir="ltr">` to stop bidi reordering (`2M`, `92.8K`, `$49`, `omermethod.com`).
+- One **left** axis for the whole frame. Every block — English and Hebrew alike —
+  starts at x=96. Verified by measurement, not by eye.
+- Hebrew blocks: `direction: rtl; text-align: left`. The `dir` keeps the glyph
+  order correct; `text-align: left` keeps the block on the shared axis.
+- Any Latin or numeric run inside a Hebrew line: wrap in `<span dir="ltr">` to
+  stop bidi reordering (`2M`, `92.8K`, `$49`, `omermethod.com`).
+
+### Sentence case, never caps
+
+Uppercase reads as advertising. Sentence case reads as a person talking. Since
+the whole sequence is a first-person story, nothing is set in caps except the
+small corner label and the chips.
+
+## Voice
+
+The copy is written the way Omer would say it out loud, not the way a campaign
+would phrase it:
+
+- **First person, and willing to admit things.** "It took me a while to admit
+  it's the wrong one" beats "Wrong question."
+- **No slogans.** A line that would work on a billboard for any brand is the
+  wrong line here.
+- **Contractions, and one aside per frame.** "That part is easy now, and honestly
+  it's the least interesting thing about any of this."
+- **Specifics over adjectives.** "889 likes on one comment" instead of
+  "incredible engagement."
+
+Ten frames of confident declaratives feel machine-made no matter how good the
+type is. The hesitations are what make it read as a person.
 
 ## Legibility over screenshots
 

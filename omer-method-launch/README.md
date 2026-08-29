@@ -40,7 +40,7 @@ That insight is the product, so the sale lands as a conclusion rather than a pit
 - [x] Design system
 - [x] Comment evidence transcribed
 - [x] Product reference — all 5 guides + proof section
-- [ ] Still portrait (`F2`) — for frame 8
+- [x] Frame 8 — text only, no portrait needed
 - [x] Frame export — 10 PNGs at 1080×1920 in `01-stories/png/`
 - [ ] Pinned carousel
 
