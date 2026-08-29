@@ -64,6 +64,11 @@
   .zone .zdesc{font-size:24px;font-weight:400;color:var(--muted);
                direction:rtl;max-width:76%;line-height:1.4}
 
+  /* a real screenshot, clipped to the region worth showing */
+  .shot{overflow:hidden;border-radius:16px;border:1px solid rgba(255,255,255,.10);
+        margin-top:38px;flex-shrink:0}
+  .shot img{display:block;width:888px}
+
   .hero{position:absolute;inset:0;border-radius:0;border-width:2px;
         justify-content:flex-start;padding-top:340px}
   .hero::after{content:'';position:absolute;inset:0;pointer-events:none;
@@ -148,19 +153,13 @@
   <div class="tag">Omer Method · 04</div>
   <div class="en lead sm">Then I took the same<br>thinking somewhere else.</div>
   <div class="en sub">Different tools. Different formats. Different audiences.</div>
-  <div style="display:flex;flex-direction:column;gap:18px;margin-top:38px">
-    <div class="zone" style="height:140px">
-      <div class="zid">B1 · Only in Israel</div>
-      <div class="zfile">oii-episode-strip.png &nbsp;·&nbsp; 1M+ views · 16 episodes</div>
-    </div>
-    <div class="zone" style="height:140px">
-      <div class="zid">C1 · BRIEF 24</div>
-      <div class="zfile">brief24.png &nbsp;·&nbsp; the method, applied to itself</div>
-    </div>
-    <div class="zone" style="height:140px">
-      <div class="zid">B2 · Make Me Care</div>
-      <div class="zfile">omer-grid.png</div>
-    </div>
+  <div class="shot" style="height:372px">
+    <img src="../02-assets/screenshots/proof-three-worlds.png" alt="">
+  </div>
+  <div class="chips">
+    <div class="chip">1M+ views</div>
+    <div class="chip">16 episodes</div>
+    <div class="chip plain">the method, applied to itself</div>
   </div>
   <div class="spacer"></div>
   <div class="en lead" style="margin-top:24px;font-size:62px">What stayed the same was<br><span class="accent">the order of my decisions.</span></div>

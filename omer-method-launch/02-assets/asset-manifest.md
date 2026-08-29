@@ -13,6 +13,7 @@ Drop files into `02-assets/screenshots/` using the exact filenames below.
 | `B1` | `oii-episode-strip.png` | Only in Israel — Ep 6–9 + Kapara Edition thumbnails | Frame 4 |
 | `B2` | `omer-grid.png` | omer_creatorai grid — OII + BRIEF 24 + MAKE ME CARE | Frame 4 |
 | `O1` | `omer-profile.png` | omer_creatorai — 51 posts, 17.9K followers, bio | Reference |
+| `P1` | `proof-three-worlds.png` | Site's THE PROOF strip — Monica, Only in Israel, BRIEF 24 in one band | **Frame 4 — composited** |
 | `E3` | `method-landing.png` | omermethod.com hero — headline, pricing, CTA | Frame 10 / carousel |
 | `D2a` | `comments-monica-emotion.png` | HE/EN/FR/PT comments, incl. **889-like** comment, "934 comments from Facebook" | **Frame 5** |
 | `D3` | `comments-ring-column.png` | The "Ring" keyword column | **Frame 6** |
@@ -45,3 +46,13 @@ PNGs, the source files need to land in `02-assets/screenshots/` by one of:
 
 Otherwise the deliverable is transparent frame overlays with exact placement
 marks, composited by hand in Canva or Photoshop.
+
+## Uploading: name files before you upload them
+
+GitHub's web uploader names a **pasted** image `image.png` every time, so each
+paste silently overwrites the previous one — three uploads landed as one file.
+Earlier versions are still in git history (`git show <commit>:<path>`), which is
+how `proof-three-worlds.png` was recovered.
+
+Save each screenshot to disk with its manifest name first, then upload the
+files. Don't paste from the clipboard.
