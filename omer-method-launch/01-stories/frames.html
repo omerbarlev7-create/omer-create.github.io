@@ -19,14 +19,18 @@
 
   /* ── English leads. Sentence case, never caps: caps read as advertising. ── */
   .en{direction:ltr;text-align:left}
-  .he{direction:rtl;text-align:left;color:var(--muted)}
+  .he{direction:rtl;text-align:left}
 
   .lead{font-size:88px;font-weight:800;line-height:1.1;letter-spacing:-.028em}
   .lead.sm{font-size:74px}
   .sub{font-size:41px;font-weight:400;line-height:1.42;color:#B9C0CE;
        margin-top:32px;max-width:900px}
-  .he-line{font-size:37px;font-weight:500;line-height:1.45;margin-top:30px;
-           max-width:880px}
+
+  /* Hebrew reads optically larger per px than Latin — no ascender/descender
+     swing — so ~0.70x of the English lead sits at matching visual weight. */
+  .he-line{font-size:62px;font-weight:600;line-height:1.24;margin-top:34px;
+           max-width:940px;color:var(--paper);letter-spacing:-.01em}
+  .he-line.sm{font-size:50px;font-weight:500;line-height:1.3}
 
   .accent{color:var(--accent)}
   em{font-style:italic;font-weight:400}
@@ -72,7 +76,7 @@
   .box .q{font-size:32px;font-weight:400;color:var(--muted)}
   .box .a{font-size:56px;font-weight:800;line-height:1.16;margin-top:14px;
           letter-spacing:-.02em}
-  .box .heb{font-size:34px;font-weight:500;color:var(--accent);margin-top:20px;
+  .box .heb{font-size:44px;font-weight:600;color:var(--accent);margin-top:20px;
             direction:rtl;text-align:left}
 
   /* ── guide list ── */
@@ -115,7 +119,7 @@
   <div class="en lead">AI handed everyone<br>a Hollywood studio.</div>
   <div class="en sub">I've been here since the beginning, learning the tools as they kept changing. What I noticed is that almost nobody knows what to do once they're inside that studio.</div>
   <div class="hr"></div>
-  <div class="he he-line">אני כאן מההתחלה. ה־AI נתן לכולם אולפן —<br>רובם עדיין לא יודעים מה לעשות בתוכו.</div>
+  <div class="he he-line">ה־AI נתן לכולם אולפן.<br>רובם לא יודעים מה לעשות בתוכו.</div>
   <div class="spacer"></div>
 </section>
 
@@ -130,7 +134,7 @@
   <div class="over">
     <div class="en sub" style="margin-top:0">I built Monica to be consistent enough that nobody would clock her as AI. Then people started asking where they could hear her song — so I put it on Spotify.</div>
     <div class="en lead sm" style="margin-top:38px">A song by someone who<br>doesn't exist became<br><span class="accent">a real song.</span></div>
-    <div class="he he-line">בניתי אותה עקבית מספיק כדי שלא יבינו.<br>ואז ביקשו את השיר — אז העליתי אותו לספוטיפיי.</div>
+    <div class="he he-line sm">ביקשו לשמוע את השיר שלה.<br>אז העליתי אותו לספוטיפיי.</div>
     <div class="chips">
       <div class="chip">92.8K followers</div>
       <div class="chip">2M views</div>
@@ -145,21 +149,21 @@
   <div class="en lead sm">Then I took the same<br>thinking somewhere else.</div>
   <div class="en sub">Different tools. Different formats. Different audiences.</div>
   <div style="display:flex;flex-direction:column;gap:18px;margin-top:38px">
-    <div class="zone" style="height:212px">
+    <div class="zone" style="height:140px">
       <div class="zid">B1 · Only in Israel</div>
       <div class="zfile">oii-episode-strip.png &nbsp;·&nbsp; 1M+ views · 16 episodes</div>
     </div>
-    <div class="zone" style="height:212px">
+    <div class="zone" style="height:140px">
       <div class="zid">C1 · BRIEF 24</div>
       <div class="zfile">brief24.png &nbsp;·&nbsp; the method, applied to itself</div>
     </div>
-    <div class="zone" style="height:212px">
+    <div class="zone" style="height:140px">
       <div class="zid">B2 · Make Me Care</div>
       <div class="zfile">omer-grid.png</div>
     </div>
   </div>
   <div class="spacer"></div>
-  <div class="en lead sm" style="margin-top:40px">The only thing that stayed<br>the same was <span class="accent">the order<br>of my decisions.</span></div>
+  <div class="en lead" style="margin-top:24px;font-size:62px">What stayed the same was<br><span class="accent">the order of my decisions.</span></div>
   <div class="he he-line">מה שנשאר קבוע — סדר ההחלטות.</div>
 </section>
 
@@ -200,7 +204,7 @@
   <div class="spacer"></div>
   <div class="en lead">Not one of them<br>mentioned the AI.</div>
   <div class="en sub">They were reacting to the story. Not <em>what</em> I made — <b>how I told it.</b></div>
-  <div class="he he-line">אף אחד לא הזכיר את ה־AI. הם הגיבו לסיפור.</div>
+  <div class="he he-line sm">אף אחד לא הזכיר את ה־AI.<br>הם הגיבו לסיפור.</div>
 
   <div class="box">
     <div class="q">So what is the method?</div>
@@ -217,7 +221,7 @@
   <div class="en sub" style="margin-top:0">I'm not here to teach you how to make an AI video. That part is easy now, and honestly it's the least interesting thing about any of this.</div>
   <div class="en lead" style="margin-top:44px">It doesn't replace you.<br><span class="accent">It sharpens what<br>you already do.</span></div>
   <div class="hr"></div>
-  <div class="he he-line">אני לא בא ללמד אתכם לעשות סרטון AI — זה החלק הקל.<br>הקשה הוא לגרום לו לשאת את מה שאתם כבר עושים.</div>
+  <div class="he he-line sm">ללמד סרטון AI זה הקל.<br>הקשה — שהוא ישא את העבודה שלכם.</div>
   <div class="spacer"></div>
 </section>
 
@@ -233,7 +237,7 @@
     <div class="grow"><div class="gnum">04</div><div class="gname">Turn Your World into a Web Series</div></div>
     <div class="grow" style="border:none"><div class="gnum">05</div><div class="gname">Inside the Creative Room</div></div>
   </div>
-  <div class="he he-line">חודשים של לכתוב, למחוק ולכתוב שוב. לא רשימת כלים.</div>
+  <div class="he he-line sm">חודשים של לכתוב, למחוק ולכתוב שוב.</div>
   <div class="spacer"></div>
   <div class="box" style="margin-top:0">
     <div class="q">Guide 01, chapter 2</div>
@@ -248,7 +252,7 @@
   <div class="spacer"></div>
   <div class="en lead sm">Does it click overnight?<br>No. <span class="accent">It's a muscle.</span></div>
   <div class="en sub">But after three years of building this, I'm convinced anyone can train it.</div>
-  <div class="he he-line">לא קורה ברגע. זה שריר.<br>אבל אני משוכנע שכל אחד יכול לאמן אותו.</div>
+  <div class="he he-line">לא קורה ברגע. זה שריר.<br>אבל כל אחד יכול לאמן אותו.</div>
   <div class="spacer"></div>
   <div class="mark">Omer <span>Method</span></div>
   <div class="live">Live now · באוויר</div>

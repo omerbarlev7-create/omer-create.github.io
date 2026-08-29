@@ -40,7 +40,8 @@ Fallback stack: `Rubik, Heebo, "Noto Sans Hebrew", Arial, sans-serif`
 |---|---|---|---|---|
 | Lead | English | 74–88px | 800 | `line-height: 1.1`, `letter-spacing: -0.028em` |
 | Sub | English | 41px | 400 | colour `#B9C0CE`, max-width 900px |
-| Support | Hebrew | 37px | 500 | colour `#7E8798`, `dir="rtl"` |
+| Hebrew lead | Hebrew | 62px | 600 | `#F2F4F8` — a headline, not a footnote |
+| Hebrew lead (dense frames) | Hebrew | 50px | 500 | `.he-line.sm` |
 | Method box | English | 56px | 800 | left accent bar, no fill |
 | Stat chip | English | 28px | 600 | accent pill, `rgba(34,211,238,0.10)` |
 | Corner label | English | 24px | 500 | `letter-spacing: 0.16em`, 38% opacity |
@@ -51,9 +52,10 @@ Fallback stack: `Rubik, Heebo, "Noto Sans Hebrew", Arial, sans-serif`
 
 The audience spans four languages — the comment thread alone carries Hebrew,
 English, French and Portuguese — so English is the line that has to land, and it
-gets the size, the weight and the paper-white. Hebrew sits below at roughly 40%
-of the lead size in muted grey: present for the Israeli audience, never
-competing for the same eye.
+gets the size, the weight and the paper-white. Hebrew sits below at ~0.70x of the English lead, in the same paper-white.
+Hebrew has no ascender/descender swing, so at 62px against an 88px Latin lead
+the two read at matching visual weight — the English is still first, but the
+Hebrew is a headline in its own right rather than a caption.
 
 ```
 ┌──────────────────────────────┐
@@ -64,7 +66,7 @@ competing for the same eye.
 │  English sub, one or two     │  ← 41px / 400 / #B9C0CE
 │  sentences of real voice.    │
 │  ────                        │
-│  שורת עברית תומכת            │  ← 37px / 500 / #7E8798
+│  כותרת עברית תואמת           │  ← 62px / 600 / #F2F4F8
 │                              │
 └──────────────────────────────┘
 ```
@@ -117,3 +119,15 @@ daylight, which is where it will actually be read.
 
 Keep it minimal — a slow 4% scale push on the image, type static. Moving type in
 stories costs readability and readability is the entire job here.
+
+## Verify before shipping
+
+Hebrew set at headline size overruns a 1080px frame easily, and a silent extra
+line pushes content past the 1920px canvas where it is simply cut off. Two
+checks run against the rendered DOM, never by eye:
+
+- every `.he-line` renders on exactly as many lines as it has explicit `<br>`s
+- no `.frame` has `scrollHeight > 1920`
+
+`lines.mjs` reports both. Re-run it after any copy edit — a single added word
+is enough to break a frame.
