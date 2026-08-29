@@ -42,6 +42,7 @@ That insight is the product, so the sale lands as a conclusion rather than a pit
 - [x] Product reference — all 5 guides + proof section
 - [x] Frame 8 — text only, no portrait needed
 - [x] Frame export — 10 PNGs at 1080×1920 in `01-stories/png/`
+- [x] All 10 frames complete — no outstanding asset dependencies
 - [ ] Pinned carousel
 
 ## Rendering the frames
@@ -54,5 +55,19 @@ node 01-stories/render.mjs   # writes 01-stories/png/story-01..10.png
 ```
 
 Type is Rubik (Hebrew + Latin). Edit the HTML, re-run, and the PNGs regenerate
-at 1080×1920. Dashed cyan boxes are drop zones — the screenshot named inside
-each one goes behind it.
+at 1080×1920.
+
+`node 01-stories/lines.mjs` checks the rendered DOM for unintended line wraps
+and frames overflowing the 1920px canvas. Run it after any copy edit — both
+failures are invisible in the source and crop silently in the PNG.
+
+### Where the imagery comes from
+
+No frame waits on an upload any more:
+
+- **Frames 3 and 4** crop regions out of `proof-three-worlds.png`, the site's
+  own THE PROOF section, using CSS clipping rather than an image library.
+- **Frames 5 and 6** rebuild the comments from the transcript in
+  `02-assets/comments-inventory.md` as styled cards. This beats a screenshot:
+  legible at story size, on-palette, and no usernames to blur.
+- **Frame 1** carries the view counts as a stat row instead of a grid capture.

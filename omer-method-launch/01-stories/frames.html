@@ -69,6 +69,42 @@
         margin-top:38px;flex-shrink:0}
   .shot img{display:block;width:888px}
 
+
+  /* ── stat row ── */
+  .statrow{display:flex;gap:22px;direction:ltr;margin-top:8px}
+  .stat{flex:1;border:1px solid rgba(34,211,238,.26);border-radius:16px;
+        background:rgba(34,211,238,.07);padding:26px 20px;text-align:center}
+  .stat .n{font-size:62px;font-weight:800;color:var(--accent);letter-spacing:-.03em;line-height:1}
+  .stat .l{font-size:24px;font-weight:500;color:var(--muted);margin-top:10px}
+
+  /* ── comments, rebuilt from the transcribed text ── */
+  .cmt{display:flex;gap:20px;direction:ltr;text-align:left;
+       background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);
+       border-radius:18px;padding:22px 24px}
+  .cmt .av{width:56px;height:56px;border-radius:50%;flex-shrink:0;
+           background:linear-gradient(140deg,#2B3550,#151C2C)}
+  .cmt .bd{flex:1;min-width:0}
+  .cmt .tx{font-size:29px;font-weight:400;line-height:1.34;color:var(--paper)}
+  .cmt .tx[dir="rtl"]{text-align:right}
+  .cmt .mt{font-size:22px;font-weight:600;color:var(--muted);margin-top:10px}
+  .cmt .mt b{color:var(--accent);font-weight:800}
+  .cmt.hero-cmt{background:rgba(34,211,238,.09);border-color:rgba(34,211,238,.34)}
+  .cmt.hero-cmt .tx{font-size:33px;font-weight:500}
+  .stack{display:flex;flex-direction:column;gap:16px;margin-top:32px}
+
+  /* ── the keyword column ── */
+  .ring{display:flex;flex-direction:column;gap:11px;margin-top:30px}
+  .rrow{display:flex;align-items:center;gap:18px;direction:ltr;
+        border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:11px}
+  .rrow .av{width:42px;height:42px;border-radius:50%;flex-shrink:0;
+            background:linear-gradient(140deg,#2B3550,#151C2C)}
+  .rrow .w{font-size:34px;font-weight:600;color:var(--paper)}
+
+  /* ── cropped region of a larger screenshot ── */
+  .crop{overflow:hidden;border-radius:18px;border:1px solid rgba(255,255,255,.12);
+        flex-shrink:0;position:relative}
+  .crop img{position:absolute;max-width:none}
+
   .hero{position:absolute;inset:0;border-radius:0;border-width:2px;
         justify-content:flex-start;padding-top:340px}
   .hero::after{content:'';position:absolute;inset:0;pointer-events:none;
@@ -103,18 +139,19 @@
 
 <!-- ══════════ 01 · HOOK ══════════ -->
 <section class="frame" id="f01">
-  <div class="zone hero">
-    <div class="zid">A3</div>
-    <div class="zfile">monica-reels-grid.png</div>
-    <div class="zdesc">גריד הרילים של מוניקה — להגדיל את ה־2M ולדחוף קדימה</div>
-  </div>
   <div class="tag">Omer Method · 01</div>
-  <div class="over">
-    <div class="en lead">“How did you<br>make that?”</div>
-    <div class="en sub">Three years of the same question.<br>It took me a while to admit <span class="accent">it's the wrong one.</span></div>
-    <div class="hr"></div>
-    <div class="he he-line">שלוש שנים שואלים אותי את זה.<br>לקח לי זמן להבין שזו לא השאלה.</div>
+  <div class="spacer"></div>
+  <div class="en lead">“How did you<br>make that?”</div>
+  <div class="en sub">Three years of the same question.<br>It took me a while to admit <span class="accent">it's the wrong one.</span></div>
+  <div class="hr"></div>
+  <div class="he he-line">שלוש שנים שואלים אותי את זה.<br>לקח לי זמן להבין שזו לא השאלה.</div>
+  <div class="spacer"></div>
+  <div class="statrow">
+    <div class="stat"><div class="n">2M</div><div class="l">views</div></div>
+    <div class="stat"><div class="n">1.6M</div><div class="l">views</div></div>
+    <div class="stat"><div class="n">1.3M</div><div class="l">views</div></div>
   </div>
+  <div class="en" style="font-size:27px;color:#7E8798;margin-top:20px">Three reels. One character who doesn't exist.</div>
 </section>
 
 <!-- ══════════ 02 · ORIGIN ══════════ -->
@@ -130,22 +167,15 @@
 
 <!-- ══════════ 03 · MONICA ══════════ -->
 <section class="frame" id="f03">
-  <div class="zone hero">
-    <div class="zid">A-HERO</div>
-    <div class="zfile">monica-stage.png</div>
-    <div class="zdesc">מוניקה שרה על הבמה — פריים נקי ורגשי</div>
-  </div>
   <div class="tag">Omer Method · 03</div>
-  <div class="over">
-    <div class="en sub" style="margin-top:0">I built Monica to be consistent enough that nobody would clock her as AI. Then people started asking where they could hear her song — so I put it on Spotify.</div>
-    <div class="en lead sm" style="margin-top:38px">A song by someone who<br>doesn't exist became<br><span class="accent">a real song.</span></div>
-    <div class="he he-line sm">ביקשו לשמוע את השיר שלה.<br>אז העליתי אותו לספוטיפיי.</div>
-    <div class="chips">
-      <div class="chip">92.8K followers</div>
-      <div class="chip">2M views</div>
-      <div class="chip">Spotify + Apple</div>
-    </div>
+  <div class="en lead sm">A song by someone who<br>doesn't exist became<br><span class="accent">a real song.</span></div>
+  <div class="en sub">I built Monica to be consistent enough that nobody would clock her as AI. Then people kept asking where they could hear her song — so I put it on Spotify.</div>
+  <div class="crop" style="width:600px;height:582px;margin-top:36px">
+    <img src="../02-assets/screenshots/proof-three-worlds.png"
+         style="width:2055px;left:-96px;top:-288px">
   </div>
+  <div class="he he-line sm">ביקשו לשמוע את השיר שלה.<br>אז העליתי אותו לספוטיפיי.</div>
+  <div class="spacer"></div>
 </section>
 
 <!-- ══════════ 04 · THREE WORLDS ══════════ -->
@@ -169,32 +199,51 @@
 <!-- ══════════ 05 · WHAT THEY SAID ══════════ -->
 <section class="frame" id="f05">
   <div class="tag">Omer Method · 05</div>
-  <div class="en sub" style="margin-top:0">Thousands of comments. Four languages. One of them picked up 889 likes on its own.</div>
-  <div class="zone" style="flex:1;margin-top:32px">
-    <div class="zid">D2a + D1</div>
-    <div class="zfile">comments-monica-emotion.png · comments-wow.png</div>
-    <div class="zdesc">8–10 תגובות בקולאז׳, סיבוב קל.<br>זו עם 889 הלייקים — הכי גדולה, מלפנים.<br>שמות מטושטשים, מספרי לייקים גלויים.</div>
+  <div class="en sub" style="margin-top:0">Thousands of comments, in four languages. One of them picked up 889 likes on its own.</div>
+  <div class="stack">
+    <div class="cmt hero-cmt"><div class="av"></div><div class="bd">
+      <div class="tx">Stand tall like the seeds of Jacob. The people of God's covenant. God bless Israel. ❤️❤️❤️</div>
+      <div class="mt">English · <b>889 likes</b></div></div></div>
+    <div class="cmt"><div class="av"></div><div class="bd">
+      <div class="tx">Wow. So proud that our grandson is part of such an historic event.</div>
+      <div class="mt">English · <b>128 likes</b></div></div></div>
+    <div class="cmt"><div class="av"></div><div class="bd">
+      <div class="tx" dir="rtl">מקסים כמה צמרמורת היא נותנת, כמה אהבה יש בהופעה הזו</div>
+      <div class="mt"><bdi>עברית</bdi> · <b>112 likes</b></div></div></div>
+    <div class="cmt"><div class="av"></div><div class="bd">
+      <div class="tx">Wouah sublimissime — elle est une si belle représentante d'Israël. Formidable</div>
+      <div class="mt">Français · <b>62 likes</b></div></div></div>
+    <div class="cmt"><div class="av"></div><div class="bd">
+      <div class="tx">Que lindoooo</div>
+      <div class="mt">Português</div></div></div>
   </div>
   <div class="chips">
     <div class="chip">4 languages</div>
-    <div class="chip">889 likes on one comment</div>
     <div class="chip plain">934 comments from Facebook</div>
   </div>
-  <div class="en lead sm" style="margin-top:40px">Look at what people<br><span class="accent">actually responded to.</span></div>
-  <div class="he he-line">תסתכלו על מה הם באמת הגיבו.</div>
+  <div class="spacer"></div>
+  <div class="en lead sm">Look at what people<br><span class="accent">actually responded to.</span></div>
+  <div class="he he-line sm">תסתכלו על מה הם באמת הגיבו.</div>
 </section>
 
 <!-- ══════════ 06 · THEY MOVED ══════════ -->
 <section class="frame" id="f06">
   <div class="tag">Omer Method · 06</div>
-  <div class="zone" style="flex:1">
-    <div class="zid">D3</div>
-    <div class="zfile">comments-ring-column.png</div>
-    <div class="zdesc">טור ה־Ring, בלי לחתוך.<br>החזרתיות היא המסר.</div>
+  <div class="en sub" style="margin-top:0">I asked for one word in the comments. This is what came back.</div>
+  <div class="ring">
+    <div class="rrow"><div class="av"></div><div class="w">Ring! Great idea 💗</div></div>
+    <div class="rrow"><div class="av"></div><div class="w">Ring 👀</div></div>
+    <div class="rrow"><div class="av"></div><div class="w">Ring</div></div>
+    <div class="rrow"><div class="av"></div><div class="w">Ring</div></div>
+    <div class="rrow"><div class="av"></div><div class="w">Ring</div></div>
+    <div class="rrow"><div class="av"></div><div class="w">Ring</div></div>
+    <div class="rrow"><div class="av"></div><div class="w">Ring</div></div>
+    <div class="rrow" style="border:none"><div class="av"></div><div class="w">Ring</div></div>
   </div>
-  <div class="en lead sm" style="margin-top:46px">Then they stopped watching<br>and <span class="accent">started typing.</span></div>
-  <div class="en sub">One keyword. A whole column of people. That's the difference between content people admire and content that actually does something.</div>
-  <div class="he he-line">מילה אחת, וטור שלם של אנשים.</div>
+  <div class="spacer"></div>
+  <div class="en lead sm">Then they stopped watching<br>and <span class="accent">started typing.</span></div>
+  <div class="en sub">That's the difference between content people admire and content that actually does something.</div>
+  <div class="he he-line sm">מילה אחת, וטור שלם של אנשים.</div>
 </section>
 
 <!-- ══════════ 07 · THE INSIGHT ══════════ -->
