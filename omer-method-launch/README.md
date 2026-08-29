@@ -41,5 +41,18 @@ That insight is the product, so the sale lands as a conclusion rather than a pit
 - [x] Comment evidence transcribed
 - [x] Product reference — all 5 guides + proof section
 - [ ] Still portrait (`F2`) — for frame 8
-- [ ] Frame export
+- [x] Frame export — 10 PNGs at 1080×1920 in `01-stories/png/`
 - [ ] Pinned carousel
+
+## Rendering the frames
+
+Frames are authored in `01-stories/frames.html` and exported with
+`01-stories/render.mjs` (Playwright + Chromium):
+
+```bash
+node 01-stories/render.mjs   # writes 01-stories/png/story-01..10.png
+```
+
+Type is Rubik (Hebrew + Latin). Edit the HTML, re-run, and the PNGs regenerate
+at 1080×1920. Dashed cyan boxes are drop zones — the screenshot named inside
+each one goes behind it.
