@@ -17,13 +17,13 @@ I built Monica, an AI singer who does not exist. People kept asking where they c
 
 That is the whole thing. The AI was never the interesting part — the how was.
 
-So what is the how? It's the questions you ask before you ever write a prompt, and the order you ask them in. A set of questions and a way of thinking that gets you to a far sharper, more precise result than guessing at prompts ever will.
+So what is the how? It's the questions you ask before you ever write a prompt, and the order you ask them in. A way of thinking that gets you to a far sharper, more precise result than guessing at prompts ever will.
 
 And the hard part isn't the prompt. It's the one you have with yourself — working out where you fit inside the method. That is what the five guides spend their time on.
 
 Does it click overnight? No. It's a muscle. But after three years of exactly this, I'm convinced anyone can build it.
 
-Link in bio → omermethod.com
+Comment HOW and I'll send you the link.
 
 —
 
@@ -35,13 +35,13 @@ Link in bio → omermethod.com
 
 זה כל הסיפור. ה-AI מעולם לא היה החלק המעניין — ה"איך" היה.
 
-אז מה ה"איך"? השאלות שאתם שואלים לפני שאתם כותבים פרומפט, ובאיזה סדר. מערכת של שאלות ודרך חשיבה שמביאה לתוצאה הרבה יותר חדה ומדויקת ממה שניחוש פרומפטים ייתן אי פעם.
+אז מה ה"איך"? השאלות שאתם שואלים לפני שאתם כותבים פרומפט, ובאיזה סדר. דרך חשיבה שמביאה לתוצאה הרבה יותר חדה ומדויקת ממה שניחוש פרומפטים ייתן אי פעם.
 
 והחלק הקשה הוא לא הפרומפט. הוא זה שמולכם — להבין איפה נכון לכם להשתלב בתוך השיטה. על זה חמשת המדריכים.
 
 קורה ברגע? לא. זה שריר. אבל אחרי שלוש שנים של בדיוק זה — אני משוכנע שכל אחד יכול.
 
-הלינק בביו ← omermethod.com
+כתבו HOW בתגובות ואשלח לכם את הקישור.
 ```
 
 ## Hashtags
@@ -58,7 +58,8 @@ Link in bio → omermethod.com
 |---|---|
 | **Order** | Eight slides, `slide-01` → `slide-08`, no reordering. Slide 05 is the payload and the sequence builds to it. |
 | **Pin it** | Profile → post → ⋯ → Pin to your profile. |
-| **First comment** | Put the link there too. People who read the caption on mobile often never reach the bio. |
+| **The keyword** | `HOW`. Reply to every comment with the link — by hand, or with a DM tool (ManyChat and similar). **Set this up before you post**; a keyword nobody answers is worse than no keyword. |
+| **First comment** | Leave the link there as well, for people who would rather not comment. |
 | **Alt text** | Worth adding on slides 01, 03 and 04 — they carry faces and no descriptive copy. |
 | **Grid crop** | Slide 01 is composed so its centre square survives the profile-grid crop. Do not swap another slide into first position without re-checking that. |
 
@@ -82,3 +83,18 @@ The carousel and the caption now run the same thread: people ask **how**, and
 the how is the order of decisions. Slide 02 sets it up, slide 06 answers it.
 Before this pass slide 02 argued that the question was *wrong*, which nothing
 downstream ever picked back up — it read as a detour.
+
+## Why a keyword instead of "link in bio"
+
+The carousel's whole argument is that people ask **how**. Asking them to comment
+that exact word closes the loop on itself, which is what makes it stick.
+
+It also demonstrates the method while selling it — the keyword mechanic is the
+same one that filled a column with a single word on an earlier post, and slide
+05 shows that happening. The post does the thing it is describing.
+
+Practically: comments push reach far harder than a bio tap, and every reply
+opens a DM, which is a warmer place to send a paid link than a profile link is.
+
+**The cost:** it only works if the replies actually go out. Set up the
+automation, or block time to answer by hand, before publishing.
