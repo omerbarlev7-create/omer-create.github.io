@@ -9,17 +9,17 @@ stopped.
 ## Caption
 
 ```
-For three years people have asked me the same question about my AI videos: how did you make that?
+In three years of making things with AI, not one person has ever asked me which model I used.
 
-It's the wrong question — and it took me a long time to admit it.
+They ask how. It took me a long time to hear the difference.
 
 I built Monica, an AI singer who does not exist. People kept asking where they could hear her song, until I put it on Spotify and a song by someone who isn't real became a real song. I built Only in Israel, a sitcom made entirely with AI that passed a million views, where the audience argues about the building's rules as if the building existed. I built BRIEF 24 using the very method it depicts, which means I ran it on myself before I ever sold it.
 
 Thousands of comments across all of it, in four languages. Not one of them asked which model I used. They wrote about a character, a song, a country. One comment picked up 889 likes on its own.
 
-That is the whole thing. The AI was never the interesting part.
+That is the whole thing. The AI was never the interesting part — the how was.
 
-So what is the method? It's the order of decisions you make before you ever write a prompt. I spent months writing it down, deleting it, and writing it again — five guides that walk through how I actually think, start to finish.
+So what is the how? It's the order of decisions you make before you ever write a prompt. I spent months writing it down, deleting it, and writing it again — five guides that walk through how I actually think, start to finish.
 
 It doesn't replace you. It sharpens what you already do.
 
@@ -29,17 +29,17 @@ Link in bio → omermethod.com
 
 —
 
-במשך שלוש שנים שואלים אותי את אותה שאלה על סרטוני ה-AI שלי: איך עשית את זה?
+בשלוש שנים של יצירה עם AI, אף אחד מעולם לא שאל אותי באיזה מודל השתמשתי.
 
-זו השאלה הלא נכונה, ולקח לי הרבה זמן להודות בזה.
+שואלים איך. לקח לי הרבה זמן לשמוע את ההבדל.
 
 בניתי את מוניקה, זמרת AI שלא קיימת. אנשים ביקשו לשמוע את השיר שלה עד שהעליתי אותו לספוטיפיי — ושיר של מישהי שלא קיימת הפך לשיר אמיתי. בניתי את Only in Israel, סיטקום שנוצר כולו ב-AI ועבר מיליון צפיות, שבו הקהל מתווכח על חוקי הבניין כאילו הבניין קיים. ובניתי את BRIEF 24 בדיוק בשיטה שהיא מתארת — כלומר הפעלתי אותה על עצמי לפני שמכרתי אותה.
 
 אלפי תגובות, בארבע שפות. אף אחת מהן לא שאלה באיזה מודל השתמשתי. הם כתבו על דמות, על שיר, על מדינה. תגובה אחת אספה לבדה 889 לייקים.
 
-זה כל הסיפור. ה-AI מעולם לא היה החלק המעניין.
+זה כל הסיפור. ה-AI מעולם לא היה החלק המעניין — ה"איך" היה.
 
-אז מה השיטה? סדר ההחלטות שאתם מקבלים לפני שאתם כותבים פרומפט. חודשים כתבתי, מחקתי וכתבתי שוב — חמישה מדריכים שלוקחים אתכם יד ביד לתוך אופן החשיבה שלי.
+אז מה ה"איך"? סדר ההחלטות שאתם מקבלים לפני שאתם כותבים פרומפט. חודשים כתבתי, מחקתי וכתבתי שוב — חמישה מדריכים שלוקחים אתכם יד ביד לתוך אופן החשיבה שלי.
 
 זה לא מחליף אתכם. זה מחדד את מה שאתם כבר עושים.
 
@@ -74,4 +74,10 @@ follow or leave. That reader has already chosen to engage, so length costs
 nothing and substance earns the follow.
 
 The hook still has to survive the 125-character truncation, which is why the
-question opens it and the admission lands immediately after.
+"nobody ever asked which model" line opens it and the turn lands immediately
+after.
+
+The carousel and the caption now run the same thread: people ask **how**, and
+the how is the order of decisions. Slide 02 sets it up, slide 06 answers it.
+Before this pass slide 02 argued that the question was *wrong*, which nothing
+downstream ever picked back up — it read as a detour.
