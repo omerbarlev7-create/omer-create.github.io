@@ -13,7 +13,7 @@ const page = await browser.newPage({
 await page.goto('file://' + SRC, { waitUntil: 'networkidle' });
 await page.waitForTimeout(500);
 
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 9; i++) {
   const id = 'f' + String(i).padStart(2, '0');
   const el = await page.$('#' + id);
   if (!el) { console.log('MISSING', id); continue; }

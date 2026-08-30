@@ -41,9 +41,9 @@ That insight is the product, so the sale lands as a conclusion rather than a pit
 - [x] Comment evidence transcribed
 - [x] Product reference — all 5 guides + proof section
 - [x] Frame 8 — text only, no portrait needed
-- [x] Frame export — 10 PNGs at 1080×1920 in `01-stories/png/`
-- [x] All 10 frames complete — no outstanding asset dependencies
-- [x] Pinned carousel — 9 slides at 1080×1350 in `03-carousel/png/`
+- [x] Frame export — 9 PNGs at 1080×1920 in `01-stories/png/`
+- [x] All frames complete — no outstanding asset dependencies
+- [x] Pinned carousel — 8 slides at 1080×1350 in `03-carousel/png/`
 
 ## Rendering the frames
 
@@ -51,7 +51,7 @@ Frames are authored in `01-stories/frames.html` and exported with
 `01-stories/render.mjs` (Playwright + Chromium):
 
 ```bash
-node 01-stories/render.mjs   # writes 01-stories/png/story-01..10.png
+node 01-stories/render.mjs   # writes 01-stories/png/story-01..09.png
 ```
 
 Type is Rubik (Hebrew + Latin). Edit the HTML, re-run, and the PNGs regenerate
@@ -67,19 +67,19 @@ No frame waits on an upload any more:
 
 - **Frames 3 and 4** crop regions out of `proof-three-worlds.png`, the site's
   own THE PROOF section, using CSS clipping rather than an image library.
-- **Frames 5 and 6** carry the comment evidence as data and as an openly
-  typographic device. Never as mocked-up comment cards — those read as
-  screenshots without being screenshots.
+- **Frame 5** carries the comment-keyword mechanic as an openly typographic
+  device. Never as mocked-up comment cards — those read as screenshots without
+  being screenshots.
 - **Frame 1** carries the view counts as a stat row instead of a grid capture.
 
 ## The pinned carousel
 
-`03-carousel/` — nine slides at **1080×1350** (4:5), same Signal & Grain
+`03-carousel/` — eight slides at **1080×1350** (4:5), same Signal & Grain
 language re-cut for the feed. `caption.md` holds the bilingual caption,
 hashtags and publishing notes.
 
 ```bash
-node 03-carousel/render.mjs   # writes 03-carousel/png/slide-01..09.png
+node 03-carousel/render.mjs   # writes 03-carousel/png/slide-01..08.png
 ```
 
 The render script also runs two checks: content must fit each slide's `.pad`,

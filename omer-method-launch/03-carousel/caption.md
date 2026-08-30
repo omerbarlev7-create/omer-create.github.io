@@ -15,13 +15,11 @@ People ask how. It took me a long time to hear the difference.
 
 I built Monica, an AI singer who does not exist. People kept asking where they could hear her song, until I put it on Spotify and a song by someone who isn't real became a real song. I built Only in Israel, a sitcom made entirely with AI that passed a million views, where the audience argues about the building's rules as if the building existed. I built BRIEF 24 using the very method it depicts, which means I ran it on myself before I ever sold it.
 
-Thousands of comments across all of it, in four languages. A question about the model turns up now and then, but it is a rounding error — people wrote about a character, a song, a country. One comment picked up 889 likes on its own.
-
 That is the whole thing. The AI was never the interesting part — the how was.
 
-So what is the how? It's the order of decisions you make before you ever write a prompt. I spent months writing it down, deleting it, and writing it again — five guides that walk through how I actually think, start to finish.
+So what is the how? It's the questions you ask before you ever write a prompt, and the order you ask them in. A set of questions and a way of thinking that gets you to a far sharper, more precise result than guessing at prompts ever will.
 
-It doesn't replace you. It sharpens what you already do.
+And the hard part isn't the prompt. It's the one you have with yourself — working out where you fit inside the method. That is what the five guides spend their time on.
 
 Does it click overnight? No. It's a muscle. But after three years of exactly this, I'm convinced anyone can build it.
 
@@ -35,13 +33,11 @@ Link in bio → omermethod.com
 
 בניתי את מוניקה, זמרת AI שלא קיימת. אנשים ביקשו לשמוע את השיר שלה עד שהעליתי אותו לספוטיפיי — ושיר של מישהי שלא קיימת הפך לשיר אמיתי. בניתי את Only in Israel, סיטקום שנוצר כולו ב-AI ועבר מיליון צפיות, שבו הקהל מתווכח על חוקי הבניין כאילו הבניין קיים. ובניתי את BRIEF 24 בדיוק בשיטה שהיא מתארת — כלומר הפעלתי אותה על עצמי לפני שמכרתי אותה.
 
-אלפי תגובות, בארבע שפות. פה ושם עולה שאלה על המודל, אבל זה שוליים — כתבו על דמות, על שיר, על מדינה. תגובה אחת אספה לבדה 889 לייקים.
-
 זה כל הסיפור. ה-AI מעולם לא היה החלק המעניין — ה"איך" היה.
 
-אז מה ה"איך"? סדר ההחלטות שאתם מקבלים לפני שאתם כותבים פרומפט. חודשים כתבתי, מחקתי וכתבתי שוב — חמישה מדריכים שלוקחים אתכם יד ביד לתוך אופן החשיבה שלי.
+אז מה ה"איך"? השאלות שאתם שואלים לפני שאתם כותבים פרומפט, ובאיזה סדר. מערכת של שאלות ודרך חשיבה שמביאה לתוצאה הרבה יותר חדה ומדויקת ממה שניחוש פרומפטים ייתן אי פעם.
 
-זה לא מחליף אתכם. זה מחדד את מה שאתם כבר עושים.
+והחלק הקשה הוא לא הפרומפט. הוא זה שמולכם — להבין איפה נכון לכם להשתלב בתוך השיטה. על זה חמשת המדריכים.
 
 קורה ברגע? לא. זה שריר. אבל אחרי שלוש שנים של בדיוק זה — אני משוכנע שכל אחד יכול.
 
@@ -60,7 +56,7 @@ Link in bio → omermethod.com
 
 | | |
 |---|---|
-| **Order** | Nine slides, `slide-01` → `slide-09`, no reordering. Slide 06 is the payload and the sequence builds to it. |
+| **Order** | Eight slides, `slide-01` → `slide-08`, no reordering. Slide 05 is the payload and the sequence builds to it. |
 | **Pin it** | Profile → post → ⋯ → Pin to your profile. |
 | **First comment** | Put the link there too. People who read the caption on mobile often never reach the bio. |
 | **Alt text** | Worth adding on slides 01, 03 and 04 — they carry faces and no descriptive copy. |

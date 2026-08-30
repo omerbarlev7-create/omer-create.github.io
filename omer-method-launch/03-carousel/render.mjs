@@ -5,7 +5,7 @@ const b = await chromium.launch();
 const p = await b.newPage({ viewport:{width:1080,height:1350} });
 await p.goto('file://' + DIR + '/carousel.html', { waitUntil:'networkidle' });
 await p.waitForTimeout(600);
-for (let i=1;i<=9;i++){
+for (let i=1;i<=8;i++){
   const id='s'+String(i).padStart(2,'0');
   const el=await p.$('#'+id); if(!el){console.log('MISSING',id);continue}
   await el.screenshot({ path:`${DIR}/png/slide-${String(i).padStart(2,'0')}.png` });
