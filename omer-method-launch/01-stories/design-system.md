@@ -201,3 +201,15 @@ of one repeated word). Both are honest about being design.
 
 **No prices in the sequence.** The close names the scope — five guides, permanent
 access — and sends people to the site. Pricing is the landing page's job.
+
+## No absolutes in the claims
+
+An earlier pass said nobody had *ever* asked which model, and that not one
+comment mentioned the AI. One screenshot of somebody asking would sink the whole
+argument — and the real claim is stronger anyway.
+
+The point was never that the question is never asked. It is that **the weight of
+the response was on the story, not on the tools**. So the copy states a
+proportion: "hardly any of it", "a rounding error", "now and then someone asks".
+A proportion is harder to argue with than an absolute, and it happens to be
+exactly what the comment evidence shows.
